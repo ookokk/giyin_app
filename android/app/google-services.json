@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1069668305439",
+    "project_id": "giyin-d7728",
+    "storage_bucket": "giyin-d7728.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069668305439:android:a0ff44cf4ddb854dc3a32a",
+        "android_client_info": {
+          "package_name": "com.example.f6_bootcamp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1069668305439-fov5nl6f6p71qdmcid97rqug3ol0522g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7kGcEWKWMZ8YxHhBUNlxwtUQLgfkJLPs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1069668305439-fov5nl6f6p71qdmcid97rqug3ol0522g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
