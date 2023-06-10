@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../view/calendar_screen.dart';
-import '../view/gardrop_screen.dart';
+import '../view/calendar/calendar_screen.dart';
+import '../view/wardrobe/gardrop_screen.dart';
 import '../view/home_screen.dart';
-import '../view/login_screen.dart';
-import '../view/register_screen.dart';
-import '../view/splash_screen.dart';
+import '../view/login/login_screen.dart';
+import '../view/login/register_screen.dart';
+import '../view/splash/splash_screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
   '/splash': (context) => const SplashScreen(),

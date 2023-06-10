@@ -1,3 +1,4 @@
+import 'package:calendar_view/calendar_view.dart';
 import 'package:flutter/material.dart';
 
 class CalendarScreen extends StatelessWidget {
@@ -5,6 +6,6 @@ class CalendarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(body: SafeArea(child: MonthView()));
   }
 }

@@ -6,8 +6,8 @@ import '../../constants/color.dart';
 import '../../constants/default_padding.dart';
 import '../../service/weather/weather_data.dart';
 
-class WeatherPage extends StatelessWidget {
-  const WeatherPage({Key? key});
+class WeatherScreen extends StatelessWidget {
+  const WeatherScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class WeatherPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   buildLocationCityRow(weatherData),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   buildUpdateButton(weatherData),
@@ -42,7 +42,7 @@ class WeatherPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    '${weatherData.weatherDescription}',
+                    weatherData.weatherDescription,
                     style: kXLargeText,
                   ),
                   const SizedBox(
@@ -55,7 +55,7 @@ class WeatherPage extends StatelessWidget {
                   const SizedBox(
                     height: 8,
                   ),
-                  Divider(
+                  const Divider(
                     height: 0.3,
                     thickness: 0.5,
                     color: Colors.white,

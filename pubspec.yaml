@@ -33,6 +33,9 @@ dependencies:
   flutter_translate: ^4.0.4
   intl: ^0.18.1
 
+  #calendar
+  calendar_view: ^1.0.3
+
 
 
 dev_dependencies:
