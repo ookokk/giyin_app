@@ -3,11 +3,15 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'location_helper.dart';
+import 'weather_forecast.dart';
 
 class WeatherData with ChangeNotifier {
-  String location = '';
+  List<WeatherForecast> forecasts = []; // 5 günlük hava durumu
+  String city = '';
+  DateTime dt = DateTime(2023);
   double temperature = 0;
   double feelslike = 0;
+  String location = '';
   String weatherDescription = '';
   double latitude = 0;
   double longitude = 0;
@@ -18,18 +22,41 @@ class WeatherData with ChangeNotifier {
   Future<void> getWeatherData(double latitude, double longitude) async {
     String apiKey = '00893a59672eedb536717886048143c1';
     String apiUrl =
-        'http://api.openweathermap.org/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric';
+        'https://api.openweathermap.org/data/2.5/forecast?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric';
 
     final response = await http.get(Uri.parse(apiUrl));
     if (response.statusCode == 200) {
       Map<String, dynamic> weatherData = jsonDecode(response.body);
-      location = weatherData['name'];
-      temperature = weatherData['main']['temp'];
-      feelslike = weatherData['main']['feels_like'];
-      weatherDescription = capitalize(weatherData['weather'][0]['description']);
-      humidity = weatherData['main']['humidity'];
-      windSpeed = weatherData['wind']['speed'];
-      rainAmount = weatherData['rain'] != null ? weatherData['rain']['1h'] : 0;
+
+      location = weatherData['city']['name'];
+
+      forecasts = List<WeatherForecast>.from(
+              weatherData['list'].map((item) => WeatherForecast.fromJson(item)))
+          .take(5)
+          .toList();
+
+      Map<DateTime, List<WeatherForecast>> dailyForecasts = {};
+
+      for (int i = 0; i < forecasts.length; i++) {
+        int timestamp = forecasts[i].dt;
+        DateTime date = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
+        DateTime day = DateTime(date.year, date.month, date.day);
+
+        if (!dailyForecasts.containsKey(day)) {
+          dailyForecasts[day] = [];
+        }
+        dailyForecasts[day]!.add(forecasts[i]);
+      }
+
+      temperature = weatherData['list'][3]['main']['temp'];
+      feelslike = weatherData['list'][0]['main']['feels_like'];
+      weatherDescription =
+          capitalize(weatherData['list'][0]['weather'][0]['description']);
+      humidity = weatherData['list'][0]['main']['humidity'];
+      windSpeed = weatherData['list'][0]['wind']['speed'];
+      rainAmount = weatherData['list'][0]['rain'] != null
+          ? weatherData['list'][0]['rain']['3h']
+          : 0;
     } else {
       location = 'Weather not available.';
       temperature = 0;
@@ -40,6 +67,44 @@ class WeatherData with ChangeNotifier {
       rainAmount = 0;
     }
     notifyListeners();
+  }
+
+  String getDayName(int index) {
+    if (index >= 0 && index < forecasts.length) {
+      DateTime date = forecasts[index].dt as DateTime;
+      DateTime now = DateTime.now();
+      if (date.year == now.year &&
+          date.month == now.month &&
+          date.day == now.day) {
+        return 'Bugün';
+      } else {
+        return getFormattedDayName(date.weekday);
+      }
+    } else {
+      return '';
+    }
+  }
+
+  // Gün ismini formatlamak için yardımcı fonksiyon
+  String getFormattedDayName(int weekday) {
+    switch (weekday) {
+      case 1:
+        return 'Monday';
+      case 2:
+        return 'Tuesday';
+      case 3:
+        return 'Wednesday';
+      case 4:
+        return 'Thursday';
+      case 5:
+        return 'Friday';
+      case 6:
+        return 'Saturday';
+      case 7:
+        return 'Sunday';
+      default:
+        return '';
+    }
   }
 
   Future<void> getCurrentLocation() async {
@@ -62,6 +127,14 @@ class WeatherData with ChangeNotifier {
   String capitalize(String text) {
     if (text.isEmpty) return text;
     return text[0].toUpperCase() + text.substring(1);
+  }
+
+  double getTemperatureForDay(int dayIndex) {
+    if (dayIndex >= 1 && dayIndex <= forecasts.length) {
+      return forecasts[dayIndex - 1].temperature;
+    } else {
+      return 0.0; // Hata durumu için varsayılan değer
+    }
   }
 
   String getWeatherImage(String weatherDescription) {

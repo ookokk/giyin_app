@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../../constants/color.dart';
 import '../../constants/default_padding.dart';
 import '../../service/weather/weather_data.dart';
+import '../../service/weather/weather_forecast.dart';
 
 class WeatherScreen extends StatelessWidget {
   const WeatherScreen({Key? key});
@@ -14,6 +15,7 @@ class WeatherScreen extends StatelessWidget {
     return Consumer<WeatherData>(builder: (context, weatherData, _) {
       String weatherImage =
           weatherData.getWeatherImage(weatherData.weatherDescription);
+
       return Scaffold(
         backgroundColor: CustomColors.kBlueWeatherBG,
         body: SafeArea(
@@ -33,17 +35,17 @@ class WeatherScreen extends StatelessWidget {
                   ),
                   Image.asset(
                     weatherImage,
-                    width: MediaQuery.of(context).size.width * 0.7,
+                    width: MediaQuery.of(context).size.width * 0.5,
                   ),
                   const SizedBox(height: 16),
                   Text(
                     '${weatherData.temperature.toInt()}°',
-                    style: kXXXLargeText,
+                    style: kXXLargeText,
                   ),
                   const SizedBox(height: 16),
                   Text(
                     weatherData.weatherDescription,
-                    style: kXLargeText,
+                    style: kLargeText,
                   ),
                   const SizedBox(
                     height: 8,
@@ -62,6 +64,75 @@ class WeatherScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   buildWindHumidityRainRow(weatherData),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(16)),
+                          child: Center(
+                            child: Column(
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      print(weatherData.forecasts.length);
+                                    },
+                                    icon: Icon(Icons.add)),
+                                Text('${weatherData.getTemperatureForDay(4)}°'),
+                                Image.asset(
+                                    WeatherForecast.getWeatherImageForecast(
+                                        weatherData.weatherDescription))
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(16)),
+                          child: Center(
+                            child:
+                                Text('${weatherData.getTemperatureForDay(2)}°'),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(16)),
+                          child: Text("osk"),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 8,
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(16)),
+                          child: Text("osk"),
+                        ),
+                      )
+                    ],
+                  )
                 ],
               ),
             ),
@@ -79,7 +150,7 @@ class WeatherScreen extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/images/wind_info.png',
-                height: 66,
+                height: 46,
               ),
               Text(
                 '${weatherData.windSpeed.toInt()} km/h',
@@ -95,7 +166,7 @@ class WeatherScreen extends StatelessWidget {
         Expanded(
           child: Column(
             children: [
-              Image.asset('assets/images/humidity.png', height: 66),
+              Image.asset('assets/images/humidity.png', height: 46),
               Text(
                 '${weatherData.humidity.toInt()}%',
                 style: kMediumText,
@@ -112,7 +183,7 @@ class WeatherScreen extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/images/rain_percent.png',
-                height: 66,
+                height: 46,
               ),
               Text(
                 ' ${weatherData.rainAmount.toInt()}%',

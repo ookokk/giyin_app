@@ -1,5 +1,6 @@
 import 'package:calendar_view/calendar_view.dart';
 import 'package:f6_bootcamp/src/view/calendar/calendar_screen.dart';
+import 'package:f6_bootcamp/src/view/weather/weather_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       child: ChangeNotifierProvider(
         create: (context) => WeatherData(),
         child: const MaterialApp(
-            debugShowCheckedModeBanner: false, home: CalendarScreen()),
+            debugShowCheckedModeBanner: false, home: WeatherScreen()),
       ),
     );
   }
