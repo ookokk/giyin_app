@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class WeatherForecast {
   int dt;
   double temperature;
@@ -15,6 +13,7 @@ class WeatherForecast {
   }
 
   static WeatherForecast fromJson(Map<String, dynamic> json) {
+    int descriptionIndex = 0;
     return WeatherForecast(
       dt: json['dt'],
       temperature: (json['main'] != null && json['main']['temp'] != null)
@@ -31,7 +30,9 @@ class WeatherForecast {
           ? (json['rain']['3h'] as num).toDouble()
           : 0.0,
       icon: json['weather'][0]['icon'],
-      image: getWeatherImageForecast(json['weather'][0]['description']),
+      image: getWeatherImageForecast(
+        json['weather'][0]['description'],
+      ),
     );
   }
 
@@ -51,27 +52,22 @@ class WeatherForecast {
     return text[0].toUpperCase() + text.substring(1);
   }
 
-  static String getWeatherImageForecast(String weatherDescription) {
-    if (weatherDescription.toLowerCase().contains('rain')) {
+  static String getWeatherImageForecast(
+    String weatherDescription,
+  ) {
+    String description = weatherDescription.toLowerCase();
+    if (description.contains('rain')) {
       return 'assets/images/rainy.png';
-    } else if (weatherDescription.toLowerCase().contains('sun')) {
+    } else if (description.contains('sun')) {
       return 'assets/images/sunny.png';
-    } else if (weatherDescription.toLowerCase().contains('cloud')) {
+    } else if (description.contains('cloud')) {
       return 'assets/images/cloudy.png';
-    } else if (weatherDescription.toLowerCase().contains('storm')) {
+    } else if (description.contains('storm')) {
       return 'assets/images/thunderstorm.png';
-    } else if (weatherDescription.toLowerCase().contains('wind')) {
+    } else if (description.contains('wind')) {
       return 'assets/images/windy.png';
     } else {
       return 'assets/images/default_weather.png';
     }
   }
 }
-
-// Örnek kodu buraya ekleyin
-List<dynamic> jsonList = []; // JSON veri listesi
-List<WeatherForecast> forecastList = WeatherForecast.fromJsonList(jsonList);
-WeatherForecast tomorrowForecast = forecastList[1]; // Yarının hava durumu
-WeatherForecast secondDayForecast = forecastList[2]; // 2. günün hava durumu
-WeatherForecast thirdDayForecast = forecastList[3]; // 3. günün hava durumu
-WeatherForecast fourthDayForecast = forecastList[4]; // 4. günün hava durumu

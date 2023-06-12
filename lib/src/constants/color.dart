@@ -7,4 +7,5 @@ class CustomColors {
   static const Color kLightBlue = Color(0xFFE4A5FF);
   static const Color kBlueWeatherBG = Color(0xFF30A2FF);
   static const Color kBeige = Color(0xFFD8C4B6);
+  static const Color kMorGibi = Color(0xFFD9DB2BF);
 }

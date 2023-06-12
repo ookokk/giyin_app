@@ -14,7 +14,7 @@ class WeatherScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<WeatherData>(builder: (context, weatherData, _) {
       String weatherImage =
-          weatherData.getWeatherImage(weatherData.weatherDescription);
+          weatherData.getWeatherImage(weatherData.weatherDescriptionToday);
 
       return Scaffold(
         backgroundColor: CustomColors.kBlueWeatherBG,
@@ -44,7 +44,7 @@ class WeatherScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    weatherData.weatherDescription,
+                    weatherData.weatherDescriptionToday,
                     style: kLargeText,
                   ),
                   const SizedBox(
@@ -69,68 +69,19 @@ class WeatherScreen extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Expanded(
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(16)),
-                          child: Center(
-                            child: Column(
-                              children: [
-                                IconButton(
-                                    onPressed: () {
-                                      print(weatherData.forecasts.length);
-                                    },
-                                    icon: Icon(Icons.add)),
-                                Text('${weatherData.getTemperatureForDay(4)}°'),
-                                Image.asset(
-                                    WeatherForecast.getWeatherImageForecast(
-                                        weatherData.weatherDescription))
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
+                      buildNextDayWeatherContainer(context, weatherData),
+                      const SizedBox(
                         width: 8,
                       ),
-                      Expanded(
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(16)),
-                          child: Center(
-                            child:
-                                Text('${weatherData.getTemperatureForDay(2)}°'),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
+                      buildNextSecondDayWeatherContainer(context, weatherData),
+                      const SizedBox(
                         width: 8,
                       ),
-                      Expanded(
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(16)),
-                          child: Text("osk"),
-                        ),
-                      ),
-                      SizedBox(
+                      buildNextThirdDayWeatherContainer(context, weatherData),
+                      const SizedBox(
                         width: 8,
                       ),
-                      Expanded(
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(16)),
-                          child: Text("osk"),
-                        ),
-                      )
+                      buildNextFourthDayWeatherContainer(context, weatherData),
                     ],
                   )
                 ],
@@ -140,6 +91,129 @@ class WeatherScreen extends StatelessWidget {
         ),
       );
     });
+  }
+
+  Expanded buildNextFourthDayWeatherContainer(
+      BuildContext context, WeatherData weatherData) {
+    return Expanded(
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.2,
+        decoration: BoxDecoration(
+            color: CustomColors.kMorGibi,
+            borderRadius: BorderRadius.circular(16)),
+        child: Center(
+            child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Text(
+                '${weatherData.getTemperatureForDay(4).toInt()}°',
+                style: kMediumText,
+              ),
+              const SizedBox(height: 8),
+              Image.asset(
+                WeatherForecast.getWeatherImageForecast(
+                    weatherData.weatherDescription4),
+              ),
+              const SizedBox(height: 8),
+              Text(weatherData.getFormattedDayName(4), style: kSmallText),
+            ],
+          ),
+        )),
+      ),
+    );
+  }
+
+  Expanded buildNextThirdDayWeatherContainer(
+      BuildContext context, WeatherData weatherData) {
+    return Expanded(
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.2,
+        decoration: BoxDecoration(
+            color: CustomColors.kMorGibi,
+            borderRadius: BorderRadius.circular(16)),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text(
+                  '${weatherData.getTemperatureForDay(3).toInt()}°',
+                  style: kMediumText,
+                ),
+                const SizedBox(height: 8),
+                Image.asset(
+                  WeatherForecast.getWeatherImageForecast(
+                      weatherData.weatherDescription3),
+                ),
+                const SizedBox(height: 8),
+                Text(weatherData.getFormattedDayName(3), style: kSmallText),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Expanded buildNextSecondDayWeatherContainer(
+      BuildContext context, WeatherData weatherData) {
+    return Expanded(
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.2,
+        decoration: BoxDecoration(
+            color: CustomColors.kMorGibi,
+            borderRadius: BorderRadius.circular(16)),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text(
+                  '${weatherData.getTemperatureForDay(2).toInt()}°',
+                  style: kMediumText,
+                ),
+                const SizedBox(height: 8),
+                Image.asset(
+                  WeatherForecast.getWeatherImageForecast(
+                      weatherData.weatherDescription2),
+                ),
+                const SizedBox(height: 8),
+                Text(weatherData.getFormattedDayName(2), style: kSmallText),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Expanded buildNextDayWeatherContainer(
+      BuildContext context, WeatherData weatherData) {
+    return Expanded(
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.2,
+        decoration: BoxDecoration(
+            color: CustomColors.kMorGibi,
+            borderRadius: BorderRadius.circular(16)),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text(
+                  '${weatherData.getTemperatureForDay(1).toInt()}°',
+                  style: kMediumText,
+                ),
+                const SizedBox(height: 8),
+                Image.asset(
+                  WeatherForecast.getWeatherImageForecast(
+                      weatherData.weatherDescription1),
+                ),
+                const SizedBox(height: 8),
+                Text(weatherData.getFormattedDayName(1), style: kSmallText),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   Row buildWindHumidityRainRow(WeatherData weatherData) {

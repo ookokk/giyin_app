@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 import 'dart:convert';
 
 import 'location_helper.dart';
@@ -12,7 +13,11 @@ class WeatherData with ChangeNotifier {
   double temperature = 0;
   double feelslike = 0;
   String location = '';
-  String weatherDescription = '';
+  String weatherDescriptionToday = '';
+  String weatherDescription1 = '';
+  String weatherDescription2 = '';
+  String weatherDescription3 = '';
+  String weatherDescription4 = '';
   double latitude = 0;
   double longitude = 0;
   int humidity = 0;
@@ -49,9 +54,19 @@ class WeatherData with ChangeNotifier {
       }
 
       temperature = weatherData['list'][3]['main']['temp'];
+
       feelslike = weatherData['list'][0]['main']['feels_like'];
-      weatherDescription =
+
+      weatherDescriptionToday =
           capitalize(weatherData['list'][0]['weather'][0]['description']);
+      weatherDescription1 =
+          capitalize(weatherData['list'][1]['weather'][0]['description']);
+      weatherDescription2 =
+          capitalize(weatherData['list'][2]['weather'][0]['description']);
+      weatherDescription3 =
+          capitalize(weatherData['list'][3]['weather'][0]['description']);
+      weatherDescription4 =
+          capitalize(weatherData['list'][4]['weather'][0]['description']);
       humidity = weatherData['list'][0]['main']['humidity'];
       windSpeed = weatherData['list'][0]['wind']['speed'];
       rainAmount = weatherData['list'][0]['rain'] != null
@@ -61,7 +76,11 @@ class WeatherData with ChangeNotifier {
       location = 'Weather not available.';
       temperature = 0;
       feelslike = 0;
-      weatherDescription = '';
+      weatherDescriptionToday = '';
+      weatherDescription1 = '';
+      weatherDescription2 = '';
+      weatherDescription3 = '';
+      weatherDescription4 = '';
       humidity = 0;
       windSpeed = 0;
       rainAmount = 0;
@@ -69,42 +88,12 @@ class WeatherData with ChangeNotifier {
     notifyListeners();
   }
 
-  String getDayName(int index) {
-    if (index >= 0 && index < forecasts.length) {
-      DateTime date = forecasts[index].dt as DateTime;
-      DateTime now = DateTime.now();
-      if (date.year == now.year &&
-          date.month == now.month &&
-          date.day == now.day) {
-        return 'Bugün';
-      } else {
-        return getFormattedDayName(date.weekday);
-      }
-    } else {
-      return '';
-    }
-  }
+  String getFormattedDayName(int daysToAdd) {
+    DateTime now = DateTime.now();
+    DateTime futureDate = now.add(Duration(days: daysToAdd));
 
-  // Gün ismini formatlamak için yardımcı fonksiyon
-  String getFormattedDayName(int weekday) {
-    switch (weekday) {
-      case 1:
-        return 'Monday';
-      case 2:
-        return 'Tuesday';
-      case 3:
-        return 'Wednesday';
-      case 4:
-        return 'Thursday';
-      case 5:
-        return 'Friday';
-      case 6:
-        return 'Saturday';
-      case 7:
-        return 'Sunday';
-      default:
-        return '';
-    }
+    String formattedDate = DateFormat('EEEE').format(futureDate);
+    return formattedDate;
   }
 
   Future<void> getCurrentLocation() async {
