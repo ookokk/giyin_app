@@ -11,7 +11,7 @@ class LocationHelper {
       latitude = position.latitude;
       longitude = position.longitude;
     } catch (e) {
-      print('Konum alınamadı: $e');
+      print("Cant get location $e");
     }
   }
 }

@@ -13,7 +13,6 @@ class WeatherForecast {
   }
 
   static WeatherForecast fromJson(Map<String, dynamic> json) {
-    int descriptionIndex = 0;
     return WeatherForecast(
       dt: json['dt'],
       temperature: (json['main'] != null && json['main']['temp'] != null)

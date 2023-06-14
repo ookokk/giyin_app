@@ -13,5 +13,5 @@ final Map<String, WidgetBuilder> routes = {
   '/register': (context) => const RegisterScreen(),
   '/home': (context) => const HomeScreen(),
   '/gardrop': (context) => const GardropScreen(),
-  '/calendar': (context) => const CalendarScreen(),
+  '/calendar': (context) => CalendarScreen(),
 };

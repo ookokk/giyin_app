@@ -1,4 +1,3 @@
-import 'package:calendar_view/calendar_view.dart';
 import 'package:f6_bootcamp/src/view/calendar/calendar_screen.dart';
 import 'package:f6_bootcamp/src/view/weather/weather_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,13 +18,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CalendarControllerProvider(
-      controller: EventController(),
-      child: ChangeNotifierProvider(
-        create: (context) => WeatherData(),
-        child: const MaterialApp(
-            debugShowCheckedModeBanner: false, home: WeatherScreen()),
-      ),
+    return ChangeNotifierProvider(
+      create: (context) => WeatherData(),
+      child: const MaterialApp(
+          debugShowCheckedModeBanner: false, home: CalendarScreen()),
     );
   }
 }

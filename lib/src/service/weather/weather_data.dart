@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'dart:convert';
 
+import '../../../ignore.dart';
 import 'location_helper.dart';
 import 'weather_forecast.dart';
 
@@ -25,7 +26,6 @@ class WeatherData with ChangeNotifier {
   double rainAmount = 0;
 
   Future<void> getWeatherData(double latitude, double longitude) async {
-    String apiKey = '00893a59672eedb536717886048143c1';
     String apiUrl =
         'https://api.openweathermap.org/data/2.5/forecast?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric';
 
