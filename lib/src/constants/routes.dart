@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../view/calendar/calendar_screen.dart';
-import '../view/wardrobe/gardrop_screen.dart';
+import '../view/wardrobe/wardrobe_screen.dart';
 import '../view/home_screen.dart';
 import '../view/login/login_screen.dart';
 import '../view/login/register_screen.dart';
@@ -12,6 +12,6 @@ final Map<String, WidgetBuilder> routes = {
   '/login': (context) => const LoginScreen(),
   '/register': (context) => const RegisterScreen(),
   '/home': (context) => const HomeScreen(),
-  '/gardrop': (context) => const GardropScreen(),
+  '/gardrop': (context) => const WardrobeScreen(),
   '/calendar': (context) => CalendarScreen(),
 };

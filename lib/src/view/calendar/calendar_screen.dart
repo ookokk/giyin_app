@@ -140,7 +140,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                     context: context,
                     builder: (_) => AlertDialog(
                       title: const Text("Delete Event?"),
-                      content: const Text("Are you sure you want to delete?"),
+                      content: const Text("Are you sure want to delete?"),
                       actions: [
                         TextButton(
                           onPressed: () => Navigator.pop(context, false),

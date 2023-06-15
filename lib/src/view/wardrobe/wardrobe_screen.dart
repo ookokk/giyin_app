@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class GardropScreen extends StatelessWidget {
-  const GardropScreen({Key? key}) : super(key: key);
+class WardrobeScreen extends StatelessWidget {
+  const WardrobeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

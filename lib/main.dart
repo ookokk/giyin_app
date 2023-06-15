@@ -1,5 +1,4 @@
 import 'package:f6_bootcamp/src/view/calendar/calendar_screen.dart';
-import 'package:f6_bootcamp/src/view/weather/weather_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
