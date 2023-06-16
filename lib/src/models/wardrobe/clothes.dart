@@ -1,3 +1,4 @@
+import 'package:f6_bootcamp/src/models/wardrobe/color_palette/color_palette.dart';
 import 'package:flutter/material.dart';
 
 import 'categories/bags.dart';
@@ -11,6 +12,20 @@ import 'categories/tops.dart';
 
 class Clothes {
   String name;
+  List<Map<String, dynamic>>? color;
+  List<Material>? material;
+  String? notes;
+
+  List<int> degreeOfLove = [1, 2, 3, 4, 5];
+  List<String>? sizeOptions = [
+    'XXS',
+    'XS',
+    'S',
+    'M',
+    'L',
+    'XL',
+    'XXL',
+  ];
   List<Type> category = [
     Bags,
     Dresses,
@@ -21,13 +36,7 @@ class Clothes {
     Shoes,
     Tops
   ];
-  Color? color;
-  String? material;
-  String? notes;
-  String season;
-  int degreeOfLove;
-  String size;
-
+  List<String> season = ['Fall', 'Winter', 'Spring', 'Summer'];
   Clothes({
     required this.name,
     required this.category,
@@ -36,6 +45,6 @@ class Clothes {
     this.notes,
     required this.season,
     required this.degreeOfLove,
-    required this.size,
+    this.sizeOptions,
   });
 }
