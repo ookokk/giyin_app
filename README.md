@@ -58,7 +58,8 @@ Giyin App, kullanıcıların dijital gardrobunu oluşturmalarını sağlar. Kiş
 - **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 340 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in en azından 100 ile başlaması gerektiğine karar verildi.
 
 
-- **Daily Scrum**: Daily Scrum toplantılarının Whatsapp ve Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de paylaşılmaktadır: [Sprint 1 Daily Scrum Chats](https://github.com/........)
+- **Daily Scrum**: Daily Scrum toplantılarının Whatsapp ve Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği  paylaşılmaktadır: [Sprint 1 Daily Scrum Chats](![WhatsApp Image 2023-06-19 at 01 17 54 (1)](https://github.com/ookokk/f6_bootcamp/assets/135658088/dd12c3ac-ce1f-4599-94c4-ab8c793aaf19)
+)
 
 - **Sprint board update**: Sprint board screenshotları: 
 ![Backlog 1](![2023-06-19 (7)](https://github.com/ookokk/f6_bootcamp/assets/135658088/84638f0b-c630-4c91-bbef-7663a5ea772d)) 
@@ -93,7 +94,7 @@ Alınan kararlar: Uygulama için veritabanı olarak firebase servisleri aktif ed
 
 ## Product Backlog URL
 
-[Flutter Team 52 Miro Backlog Board](https://miro.com/app/board/uXjVO4kRs2w=/)
+[Flutter Team 52 Miro Backlog Board]https://www.notion.so/7d4e1f0e17fa47ebac6f38a81a35a2f1?v=efb271682ca0491a8eb28801fa0eb8ef)
 
 ---
 
