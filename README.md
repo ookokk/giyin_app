@@ -65,10 +65,14 @@ Giyin App, kullanıcıların dijital gardrobunu oluşturmalarını sağlar. Kiş
 
 
 - **Ürün Durumu**: Ekran görüntüleri:
-  ![Weather_Page_1](blob:https://web.whatsapp.com/7f1697cb-99ac-489d-8e78-3ded6192a8fc)
+  ![Weather_Page_1](![WhatsApp Image 2023-06-18 at 23 10 24](https://github.com/ookokk/f6_bootcamp/assets/135658088/5c8574d5-25d6-4ed7-9518-fd7d5f0026bf))
+)
   ![Screenshot 2](![WhatsApp Image 2023-06-18 at 23 04 53](https://github.com/ookokk/f6_bootcamp/assets/135658088/34eac454-c106-4109-a0c2-3c56aace6b43)
 )
-  ![WireFrame_1](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint1Documents/product4.gif)
+  ![WireFrame_1](![WhatsApp Image 2023-06-18 at 23 04 53 (1)](https://github.com/ookokk/f6_bootcamp/assets/135658088/a1addd7e-adfd-4b79-a758-32684f1118ab)
+)
+  ![WireFrame_1](![WhatsApp Image 2023-06-18 at 23 04 53 (2)](https://github.com/ookokk/f6_bootcamp/assets/135658088/d96efa13-f70a-4407-807c-b169d359ae71)
+)
 
 - **Sprint Review**: 
 Alınan kararlar: Uygulama için veritabanı olarak firebase servisleri aktif edilmiş ve eksiklikler değerlendirilmiştir. Hava durumu sayfası oluşturulmuş, kodlanmıştır. Uygulamanın Kullanıcı Arayüzü tasarımları taslak olarak oluşturulmuş, tasarımlar devam etmektedir. Sprint Review katılımcıları: Beyza Akcan, Dilara Maya Taşcı, Usame Altınışık, Osman Kök, Fatih Özcan.
