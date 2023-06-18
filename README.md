@@ -17,7 +17,7 @@ Takım Flutter 6
 
 ## Product Backlog URL
 
-[Flutter Team 6 Notion Backlog Board](https://.......)
+[Flutter Team 6 Notion Backlog Board](https://www.notion.so/e12b45d9475e4d28bc8ec76476316a03?v=9f50567ba551486eb9867075bc6077c4)
 
 
 ## Ürün Açıklaması
