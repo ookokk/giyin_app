@@ -61,8 +61,12 @@ Giyin App, kullanıcıların dijital gardrobunu oluşturmalarını sağlar. Kiş
 - **Daily Scrum**: Daily Scrum toplantılarının Whatsapp ve Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de paylaşılmaktadır: [Sprint 1 Daily Scrum Chats](https://github.com/........)
 
 - **Sprint board update**: Sprint board screenshotları: 
-![Backlog 1](https://raw.githubusercontent.com/OyunveUygulamaAkademisi/Bootcamp2022Example/main/ProjectManagement/Sprint1Documents/backlog1.png) 
-
+![Backlog 1](![2023-06-19 (7)](https://github.com/ookokk/f6_bootcamp/assets/135658088/84638f0b-c630-4c91-bbef-7663a5ea772d)) 
+)
+![Backlog 2](![2023-06-19 (10)](https://github.com/ookokk/f6_bootcamp/assets/135658088/e174723b-a30b-49cf-9bd2-3d08a17aa272)
+)
+![Backlog 3](![2023-06-19 (12)](https://github.com/ookokk/f6_bootcamp/assets/135658088/09ac8cf1-23c2-4161-a1be-1140c943e436)
+)
 
 - **Ürün Durumu**: Ekran görüntüleri:
   ![Weather_Page_1](![WhatsApp Image 2023-06-18 at 23 10 24](https://github.com/ookokk/f6_bootcamp/assets/135658088/5c8574d5-25d6-4ed7-9518-fd7d5f0026bf))
