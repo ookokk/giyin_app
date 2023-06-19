@@ -51,6 +51,8 @@ Giyin App, kullanıcıların dijital gardrobunu oluşturmalarını sağlar. Kiş
 ---
 
 # Sprint 1
+- **Sprint Notları:** Tasarım taslaklarının üzerinden geçildi, son karar verildi. Hava durumu uygulamada çalışır hale getirildi.
+
 
 - **Sprint içinde tamamlanması tahmin edilen puan**: 100 Puan
 
