@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class ColorPalette {
   static Map<String, dynamic> red = {'name': 'Red', 'value': 0xFF0000};
   static Map<String, dynamic> green = {'name': 'Green', 'value': 0x00FF00};

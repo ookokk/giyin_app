@@ -4,11 +4,18 @@ TextStyle kSmallText = const TextStyle(
   fontFamily: 'OpenSans-Medium',
   fontSize: 16,
 );
+TextStyle kSmallBlueText = const TextStyle(
+    fontFamily: 'OpenSans-Medium', fontSize: 16, color: Colors.blue);
 
 TextStyle kMediumText = const TextStyle(
   fontFamily: 'OpenSans-Medium',
   fontSize: 20,
   color: Colors.black,
+);
+TextStyle kMediumBlueText = const TextStyle(
+  fontFamily: 'OpenSans-Medium',
+  fontSize: 20,
+  color: Colors.blue,
 );
 
 TextStyle kMediumLargeBText = const TextStyle(

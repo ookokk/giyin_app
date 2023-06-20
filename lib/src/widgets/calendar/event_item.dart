@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/material.dart';
 import '../../models/calendar/event.dart';
 
@@ -29,3 +30,4 @@ class EventItem extends StatelessWidget {
     );
   }
 }
+*/
