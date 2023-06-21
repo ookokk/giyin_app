@@ -21,11 +21,11 @@ class RegisterScreen extends StatelessWidget {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Error'),
-            content: Text('Passwords do not match.'),
+            title: const Text('Error'),
+            content: const Text('Passwords do not match.'),
             actions: [
               ElevatedButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -47,11 +47,11 @@ class RegisterScreen extends StatelessWidget {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Error'),
+            title: const Text('Error'),
             content: Text(e.toString()),
             actions: [
               ElevatedButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -77,7 +77,7 @@ class RegisterScreen extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.arrow_back)),
+            icon: const Icon(Icons.arrow_back)),
       ),
       backgroundColor: Colors.grey[300],
       body: SingleChildScrollView(

@@ -17,7 +17,7 @@ class ForgotPasswordScreen extends StatelessWidget {
           .sendPasswordResetEmail(email: emailController.text.trim());
       showDialog(
         context: scaffoldContext,
-        builder: (scaffoldContext) => AlertDialog(
+        builder: (scaffoldContext) => const AlertDialog(
           content: Text("Password reset link sent! Check your email"),
         ),
       );
@@ -42,7 +42,7 @@ class ForgotPasswordScreen extends StatelessWidget {
             onPressed: () {
               Navigator.pop(scaffoldContext);
             },
-            icon: Icon(Icons.arrow_back)),
+            icon: const Icon(Icons.arrow_back)),
       ),
       body: SingleChildScrollView(
         child: SafeArea(
@@ -52,7 +52,7 @@ class ForgotPasswordScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text("Forgot\n Password?", style: kXLargeText),
-                SizedBox(height: 26),
+                const SizedBox(height: 26),
                 Text(
                     "Don't worry! It happens.Please enter the address associated with your account.",
                     textAlign: TextAlign.center,

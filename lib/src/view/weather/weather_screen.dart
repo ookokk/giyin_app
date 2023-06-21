@@ -12,7 +12,7 @@ class WeatherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<WeatherData>(builder: (context, weatherData, _) {
+    return Consumer<WeatherProvider>(builder: (context, weatherData, _) {
       String weatherImage =
           weatherData.getWeatherImage(weatherData.weatherDescriptionToday);
 
@@ -94,7 +94,7 @@ class WeatherScreen extends StatelessWidget {
   }
 
   Expanded buildNextFourthDayWeatherContainer(
-      BuildContext context, WeatherData weatherData) {
+      BuildContext context, WeatherProvider weatherData) {
     return Expanded(
       child: Container(
         height: MediaQuery.of(context).size.height * 0.2,
@@ -124,7 +124,7 @@ class WeatherScreen extends StatelessWidget {
   }
 
   Expanded buildNextThirdDayWeatherContainer(
-      BuildContext context, WeatherData weatherData) {
+      BuildContext context, WeatherProvider weatherData) {
     return Expanded(
       child: Container(
         height: MediaQuery.of(context).size.height * 0.2,
@@ -155,7 +155,7 @@ class WeatherScreen extends StatelessWidget {
   }
 
   Expanded buildNextSecondDayWeatherContainer(
-      BuildContext context, WeatherData weatherData) {
+      BuildContext context, WeatherProvider weatherData) {
     return Expanded(
       child: Container(
         height: MediaQuery.of(context).size.height * 0.2,
@@ -186,7 +186,7 @@ class WeatherScreen extends StatelessWidget {
   }
 
   Expanded buildNextDayWeatherContainer(
-      BuildContext context, WeatherData weatherData) {
+      BuildContext context, WeatherProvider weatherData) {
     return Expanded(
       child: Container(
         height: MediaQuery.of(context).size.height * 0.2,
@@ -216,7 +216,7 @@ class WeatherScreen extends StatelessWidget {
     );
   }
 
-  Row buildWindHumidityRainRow(WeatherData weatherData) {
+  Row buildWindHumidityRainRow(WeatherProvider weatherData) {
     return Row(
       children: [
         Expanded(
@@ -274,7 +274,7 @@ class WeatherScreen extends StatelessWidget {
     );
   }
 
-  ElevatedButton buildUpdateButton(WeatherData weatherData) {
+  ElevatedButton buildUpdateButton(WeatherProvider weatherData) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
           foregroundColor: Colors.black,
@@ -297,7 +297,7 @@ class WeatherScreen extends StatelessWidget {
     );
   }
 
-  Row buildLocationCityRow(WeatherData weatherData) {
+  Row buildLocationCityRow(WeatherProvider weatherData) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [

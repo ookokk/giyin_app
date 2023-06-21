@@ -1,9 +1,11 @@
+import 'package:f6_bootcamp/src/view/wardrobe/upload_photo_of_clothes/upload_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'src/constants/routes.dart';
 import 'src/service/firebase_options.dart';
+import 'src/service/wardrobe/image_upload_provider.dart';
 import 'src/service/weather/weather_data.dart';
 import 'src/service/calendar/calendar_provider.dart';
 import 'src/view/login/auth_screen.dart';
@@ -21,14 +23,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => WeatherData()),
+        ChangeNotifierProvider(create: (context) => WeatherProvider()),
         ChangeNotifierProvider(create: (context) => CalendarProvider()),
-        // Additional providers can be added here
+        ChangeNotifierProvider(create: (context) => ImageUploadProvider()),
       ],
       child: MaterialApp(
         routes: routes,
         debugShowCheckedModeBanner: false,
-        home: AuthScreen(),
+        home: const UploadPage(),
       ),
     );
   }

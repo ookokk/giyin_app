@@ -7,7 +7,7 @@ import '../../../ignore.dart';
 import 'location_helper.dart';
 import 'weather_forecast.dart';
 
-class WeatherData with ChangeNotifier {
+class WeatherProvider with ChangeNotifier {
   List<WeatherForecast> forecasts = []; // 5 günlük hava durumu
   String city = '';
   DateTime dt = DateTime(2023);
