@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'src/constants/routes.dart';
 import 'src/service/firebase_options.dart';
 import 'src/service/wardrobe/image_upload_provider.dart';
-import 'src/service/weather/weather_data.dart';
+import 'src/service/weather/weather_provider.dart';
 import 'src/service/calendar/calendar_provider.dart';
 import 'src/view/login/auth_screen.dart';
 

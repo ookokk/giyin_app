@@ -33,19 +33,6 @@ class ImageUploadProvider extends ChangeNotifier {
     }
   }
 
-  Future<void> pickImage(ImageSource source) async {
-    try {
-      final pickedImage = await ImagePicker().getImage(source: source);
-      if (pickedImage != null) {
-        selectedImage = File(pickedImage.path);
-      }
-    } catch (error) {
-      print(error);
-      throw Exception(error);
-    }
-    notifyListeners();
-  }
-
   Future<String> uploadImageToStorage(File image) async {
     final user = FirebaseAuth.instance.currentUser;
     final String userId = user!.uid;
@@ -66,11 +53,26 @@ class ImageUploadProvider extends ChangeNotifier {
   }
 
   Future<void> cropImage(BuildContext context, File imageFile) async {
-    final crop = await ImageCropper.requestCrop(context, file: imageFile);
+    final crop = await ImageCropper().cropImage(
+      sourcePath: imageFile.path,
+    );
     if (crop != null) {
       // Kırpılmış resmi kullanarak istediğiniz işlemleri gerçekleştirin
     } else {
       print('Image cropping cancelled!');
     }
+  }
+
+  Future<void> pickImage(ImageSource source) async {
+    try {
+      final pickedImage = await ImagePicker().getImage(source: source);
+      if (pickedImage != null) {
+        selectedImage = File(pickedImage.path);
+      }
+    } catch (error) {
+      print(error);
+      throw Exception(error);
+    }
+    notifyListeners();
   }
 }

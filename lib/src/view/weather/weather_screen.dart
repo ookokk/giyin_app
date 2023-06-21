@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 import '../../constants/color.dart';
 import '../../constants/default_padding.dart';
-import '../../service/weather/weather_data.dart';
+import '../../service/weather/weather_provider.dart';
 import '../../service/weather/weather_forecast.dart';
 
 class WeatherScreen extends StatelessWidget {
