@@ -61,6 +61,7 @@ class ImageUploadProvider extends ChangeNotifier {
     } else {
       print('Image cropping cancelled!');
     }
+    notifyListeners();
   }
 
   Future<void> pickImage(ImageSource source) async {

@@ -1,5 +1,5 @@
-import 'package:f6_bootcamp/src/constants/auth_components/my_button.dart';
-import 'package:f6_bootcamp/src/constants/auth_components/my_textfield.dart';
+import 'package:f6_bootcamp/src/constants/auth_components/auth_screen_button.dart';
+import 'package:f6_bootcamp/src/constants/auth_components/auth_textfield.dart';
 import 'package:f6_bootcamp/src/constants/default_padding.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -58,12 +58,12 @@ class ForgotPasswordScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: kSmallText),
                 const SizedBox(height: 26),
-                MyTextField(
+                AuthTextField(
                     controller: emailController,
                     hintText: "Email",
                     obscureText: false),
                 const SizedBox(height: 26),
-                MyButton(
+                AuthScreenButton(
                     buttonText: "Submit",
                     onTap: () {
                       passwordReset(scaffoldContext);

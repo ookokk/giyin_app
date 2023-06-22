@@ -1,8 +1,8 @@
 import 'package:f6_bootcamp/src/constants/text_style.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../../constants/auth_components/my_button.dart';
-import '../../constants/auth_components/my_textfield.dart';
+import '../../constants/auth_components/auth_screen_button.dart';
+import '../../constants/auth_components/auth_textfield.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({
@@ -97,7 +97,7 @@ class RegisterScreen extends StatelessWidget {
                 const SizedBox(height: 50),
 
                 // username textfield
-                MyTextField(
+                AuthTextField(
                   controller: emailController,
                   hintText: 'Email',
                   obscureText: false,
@@ -106,7 +106,7 @@ class RegisterScreen extends StatelessWidget {
                 const SizedBox(height: 10),
 
                 // password textfield
-                MyTextField(
+                AuthTextField(
                   controller: passwordController,
                   hintText: 'Password',
                   obscureText: true,
@@ -114,7 +114,7 @@ class RegisterScreen extends StatelessWidget {
 
                 const SizedBox(height: 10),
                 //confirm password
-                MyTextField(
+                AuthTextField(
                   controller: confirmPasswordController,
                   hintText: 'Confirm Password',
                   obscureText: true,

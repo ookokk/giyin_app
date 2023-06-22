@@ -1,3 +1,6 @@
+import 'package:f6_bootcamp/src/view/calendar/calendar_screen.dart';
+import 'package:f6_bootcamp/src/view/wardrobe/add_clothe/clothe_upload_screen.dart';
+import 'package:f6_bootcamp/src/view/wardrobe/add_clothe/edit_clothe_options_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../view/calendar/edit_combinations_screen.dart';
@@ -19,7 +22,12 @@ final Map<String, WidgetBuilder> routes = {
   '/home': (context) => HomeScreen(),
   //GARDROP
   '/gardrop': (context) => const WardrobeScreen(),
-  '/calendar': (context) => EditCombinationsScreen(),
+  //CREATE CLOTHE
+  '/clotheUpload': (context) => const ClotheUploadScreen(),
+  '/editClotheOptions': (context) => const EditClotheOptionsScreen(),
+
+  //CALENDAR
+  '/calendar': (context) => CalendarScreen(),
   //HAVA DURUMU
   '/weather': (context) => const WeatherScreen(),
 };

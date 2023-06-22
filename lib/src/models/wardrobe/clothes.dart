@@ -10,9 +10,9 @@ import 'categories/shoes.dart';
 import 'categories/tops.dart';
 
 class Clothes {
-  int durationOfUse;
+  int? durationOfUse = 0;
   String name;
-  List<Map<String, dynamic>>? color;
+  List<Map<String, dynamic>> color;
   List<Material>? material;
   String? notes;
 
@@ -38,10 +38,10 @@ class Clothes {
   ];
   List<String> season = ['Fall', 'Winter', 'Spring', 'Summer'];
   Clothes({
-    required this.durationOfUse,
+    this.durationOfUse,
     required this.name,
     required this.category,
-    this.color,
+    required this.color,
     this.material,
     this.notes,
     required this.season,

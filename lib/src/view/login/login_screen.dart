@@ -4,8 +4,8 @@ import 'package:f6_bootcamp/src/service/auth/sign_in_with_google.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../../constants/auth_components/my_button.dart';
-import '../../constants/auth_components/my_textfield.dart';
+import '../../constants/auth_components/auth_screen_button.dart';
+import '../../constants/auth_components/auth_textfield.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({
@@ -55,7 +55,7 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(height: 25),
 
                   // username textfield
-                  MyTextField(
+                  AuthTextField(
                     controller: emailController,
                     hintText: 'Email',
                     obscureText: false,
@@ -64,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(height: 10),
 
                   // password textfield
-                  MyTextField(
+                  AuthTextField(
                     controller: passwordController,
                     hintText: 'Password',
                     obscureText: true,
@@ -78,7 +78,7 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(height: 25),
 
                   // sign in button
-                  MyButton(
+                  AuthScreenButton(
                     buttonText: "Sign In",
                     onTap: signUserIn,
                   ),

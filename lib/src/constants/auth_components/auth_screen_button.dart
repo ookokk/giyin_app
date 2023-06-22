@@ -1,11 +1,11 @@
 import 'package:f6_bootcamp/src/constants/text_style.dart';
 import 'package:flutter/material.dart';
 
-class MyButton extends StatelessWidget {
+class AuthScreenButton extends StatelessWidget {
   final Function()? onTap;
   String buttonText;
 
-  MyButton({super.key, required this.buttonText, required this.onTap});
+  AuthScreenButton({super.key, required this.buttonText, required this.onTap});
 
   @override
   Widget build(BuildContext context) {

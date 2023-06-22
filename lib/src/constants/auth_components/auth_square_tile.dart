@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SquareTile extends StatelessWidget {
+class AuthSquareTile extends StatelessWidget {
   final String imagePath;
   final Function()? onTap;
-  const SquareTile({
+  const AuthSquareTile({
     super.key,
     required this.imagePath,
     this.onTap,
