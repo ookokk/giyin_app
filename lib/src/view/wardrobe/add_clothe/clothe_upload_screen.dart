@@ -27,7 +27,7 @@ class ClotheUploadScreen extends StatelessWidget {
                       );
                     }
                   },
-                  icon: Icon(Icons.edit))
+                  icon: const Icon(Icons.edit))
             ],
             backgroundColor: Colors.black87,
             leading: IconButton(

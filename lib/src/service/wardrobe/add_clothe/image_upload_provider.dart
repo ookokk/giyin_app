@@ -66,7 +66,7 @@ class ImageUploadProvider extends ChangeNotifier {
 
   Future<void> pickImage(ImageSource source) async {
     try {
-      final pickedImage = await ImagePicker().getImage(source: source);
+      final pickedImage = await ImagePicker().pickImage(source: source);
       if (pickedImage != null) {
         selectedImage = File(pickedImage.path);
       }

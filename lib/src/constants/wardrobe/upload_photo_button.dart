@@ -1,5 +1,4 @@
 import 'package:f6_bootcamp/src/constants/color.dart';
-import 'package:f6_bootcamp/src/constants/text_style.dart';
 import 'package:flutter/material.dart';
 
 class UploadPhotoButton extends StatelessWidget {

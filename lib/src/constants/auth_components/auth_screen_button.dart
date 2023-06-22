@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class AuthScreenButton extends StatelessWidget {
   final Function()? onTap;
-  String buttonText;
+  final String buttonText;
 
   AuthScreenButton({super.key, required this.buttonText, required this.onTap});
 

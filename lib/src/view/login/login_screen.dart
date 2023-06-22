@@ -197,7 +197,7 @@ class LoginScreen extends StatelessWidget {
                     "assets/icons/google.png",
                     height: MediaQuery.of(context).size.height * 0.04,
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Text(
                     "Login with Google",
                     style: kSmallText,

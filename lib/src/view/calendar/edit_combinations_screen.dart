@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import '../../service/calendar/calendar_provider.dart';
 
 class EditCombinationsScreen extends StatelessWidget {
+  const EditCombinationsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -3,7 +3,6 @@ import 'package:f6_bootcamp/src/view/wardrobe/add_clothe/clothe_upload_screen.da
 import 'package:f6_bootcamp/src/view/wardrobe/add_clothe/edit_clothe_options_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../view/calendar/edit_combinations_screen.dart';
 import '../view/login/forgot_password_screen.dart';
 import '../view/wardrobe/wardrobe_screen.dart';
 import '../view/home_screen.dart';

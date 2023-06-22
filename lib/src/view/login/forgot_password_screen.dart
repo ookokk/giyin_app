@@ -34,13 +34,13 @@ class ForgotPasswordScreen extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext scaffoldContext) {
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
         leading: IconButton(
             onPressed: () {
-              Navigator.pop(scaffoldContext);
+              Navigator.pop(context);
             },
             icon: const Icon(Icons.arrow_back)),
       ),
@@ -66,7 +66,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                 AuthScreenButton(
                     buttonText: "Submit",
                     onTap: () {
-                      passwordReset(scaffoldContext);
+                      passwordReset(context);
                     })
               ],
             ),
