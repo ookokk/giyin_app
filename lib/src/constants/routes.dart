@@ -23,7 +23,7 @@ final Map<String, WidgetBuilder> routes = {
   '/gardrop': (context) => const WardrobeScreen(),
   //CREATE CLOTHE
   '/clotheUpload': (context) => const ClotheUploadScreen(),
-  '/editClotheOptions': (context) => const EditClotheOptionsScreen(),
+  '/editClotheOptions': (context) => EditClotheOptionsScreen(),
 
   //CALENDAR
   '/calendar': (context) => CalendarScreen(),

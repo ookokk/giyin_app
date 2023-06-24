@@ -7,6 +7,7 @@ import 'src/service/firebase_options.dart';
 import 'src/service/wardrobe/add_clothe/image_upload_provider.dart';
 import 'src/service/weather/weather_provider.dart';
 import 'src/service/calendar/calendar_provider.dart';
+import 'src/view/login/auth_screen.dart';
 import 'src/view/wardrobe/add_clothe/clothe_upload_screen.dart';
 
 void main() async {
