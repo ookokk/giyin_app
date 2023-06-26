@@ -1,6 +1,5 @@
 import 'package:f6_bootcamp/src/view/calendar/calendar_screen.dart';
 import 'package:f6_bootcamp/src/view/wardrobe/add_clothe/clothe_upload_screen.dart';
-import 'package:f6_bootcamp/src/view/wardrobe/add_clothe/edit_clothe_options_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../view/login/forgot_password_screen.dart';
@@ -22,8 +21,7 @@ final Map<String, WidgetBuilder> routes = {
   //GARDROP
   '/gardrop': (context) => const WardrobeScreen(),
   //CREATE CLOTHE
-  '/clotheUpload': (context) => const ClotheUploadScreen(),
-  '/editClotheOptions': (context) => EditClotheOptionsScreen(),
+  '/clotheUpload': (context) => ClotheUploadScreen(),
 
   //CALENDAR
   '/calendar': (context) => CalendarScreen(),

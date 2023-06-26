@@ -2,7 +2,7 @@ import 'package:f6_bootcamp/src/constants/text_style.dart';
 import 'package:flutter/material.dart';
 
 class AuthTextField extends StatelessWidget {
-  final controller;
+  final TextEditingController controller;
   final String hintText;
   final bool obscureText;
 

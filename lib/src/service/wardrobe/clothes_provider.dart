@@ -1,36 +1,37 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../../models/wardrobe/categories/bags.dart';
-import '../../models/wardrobe/categories/dresses.dart';
-import '../../models/wardrobe/categories/headwear.dart';
-import '../../models/wardrobe/categories/hijab.dart';
-import '../../models/wardrobe/categories/outer.dart';
-import '../../models/wardrobe/categories/pants.dart';
-import '../../models/wardrobe/categories/shoes.dart';
-import '../../models/wardrobe/categories/tops.dart';
+
 import '../../models/wardrobe/clothes.dart';
 
 class ClothesProvider with ChangeNotifier {
-  FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   Clothes? selectedClothes;
   String? _userUid;
-  List<int>? _degreeOfLove = [1, 2, 3, 4, 5];
+  int? _durationOfUse = 0;
 
-  List<Type> _category = [
-    Bags,
-    Dresses,
-    Headwear,
-    Hijab,
-    Outer,
-    Pants,
-    Shoes,
-    Tops
-  ];
+  List<int>? _degreeOfLove = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   String? _name;
   String? _notes;
-  String? _color;
-  int? _durationOfUse = 0;
+  List<String>? _color = [
+    'Red',
+    'Blue',
+    'Green',
+    'Yellow',
+    'Purple',
+    'Orange',
+    'Pink',
+    'Brown',
+    'Gray',
+    'Black',
+    'White',
+    'Cyan',
+    'Magenta',
+    'Lime',
+    'Teal',
+  ];
+
   List<String>? _sizeOptions = [
     'XXS',
     'XS',
@@ -66,14 +67,35 @@ class ClothesProvider with ChangeNotifier {
     "Velvet",
     "Viscose"
   ];
-
+  List<String> _category = [
+    'Bags',
+    'Dresses',
+    'HeadWear',
+    'Hijab',
+    'Outer',
+    'Pants',
+    'Shoes',
+    'Tops',
+    'Skirts',
+    'Swimwear',
+    'Activewear',
+    'Sleepwear',
+    'Underwear',
+    'Socks',
+    'Accessories',
+    'Costumes',
+    'Uniforms',
+    'Maternity',
+  ];
   // Getters
   List<int>? get degreeOfLove => _degreeOfLove;
-  String? get color => _color;
+
   String? get userUid => _userUid;
-  List<Type> get category => _category;
-  String? get name => _name;
   int? get durationOfUse => _durationOfUse;
+  String? get name => _name;
+  List<String> get category => _category;
+  List<String>? get color => _color;
+
   List<String>? get sizeOptions => _sizeOptions;
   List<String>? get season => _season;
   List<String>? get material => _material;
@@ -82,8 +104,8 @@ class ClothesProvider with ChangeNotifier {
   ClothesProvider({this.selectedClothes}) {
     // Assign the properties from selectedClothes to the corresponding properties in the ClothesProvider
     if (selectedClothes != null) {
-      _color = selectedClothes!.color as String?;
-      _category = selectedClothes!.category as List<Type>;
+      _color = selectedClothes!.color;
+      _category = selectedClothes!.category.cast<String>();
       _name = selectedClothes!.name;
       _durationOfUse = selectedClothes!.durationOfUse;
       _sizeOptions = selectedClothes!.sizeOptions;
@@ -97,7 +119,7 @@ class ClothesProvider with ChangeNotifier {
       String userUid, String propertyName, dynamic propertyValue) {
     if (selectedClothes != null) {
       FirebaseFirestore.instance
-          .collection('collections')
+          .collection('users')
           .doc(userUid)
           .collection('clothes')
           .doc(selectedClothes!.clotheID)
@@ -116,52 +138,55 @@ class ClothesProvider with ChangeNotifier {
     }
   }
 
-  void setColor(String userUid, String color) {
-    _color = color;
-    saveColorToDatabase(userUid, color);
+  void setDegreeOfLove(int degreeOfLove) {
+    _degreeOfLove = [degreeOfLove];
     notifyListeners();
   }
 
-  void setCategory(String userUid, String category) {
-    _category = category as List<Type>;
-    saveCategoryToDatabase(userUid, category);
+  void setCategory(String category) {
+    _category = [category];
     notifyListeners();
   }
 
-  void setName(String userUid, String name) {
+  void setName(String name) {
     _name = name;
-    saveNameToDatabase(userUid, name);
     notifyListeners();
   }
 
-  void setDurationOfUse(String userUid, int durationOfUse) {
-    _durationOfUse = durationOfUse;
-    saveDurationOfUseToDatabase(userUid, durationOfUse);
-    notifyListeners();
-  }
-
-  void setSizeOptions(String userUid, List<String> sizeOptions) {
-    _sizeOptions = sizeOptions;
-    saveSizeOptionsToDatabase(userUid, sizeOptions);
-    notifyListeners();
-  }
-
-  void setSeason(String userUid, List<String> season) {
-    _season = season;
-    saveSeasonToDatabase(userUid, season);
-    notifyListeners();
-  }
-
-  void setMaterial(String userUid, List<String> material) {
-    _material = material;
-    saveMaterialToDatabase(userUid, material);
-    notifyListeners();
-  }
-
-  void setNotes(String userUid, String notes) {
+  void setNotes(String notes) {
     _notes = notes;
-    saveNotesToDatabase(userUid, notes);
     notifyListeners();
+  }
+
+  void setColor(String color) {
+    _color = [color];
+    notifyListeners();
+  }
+
+  void setDurationOfUse(int durationOfUse) {
+    _durationOfUse = durationOfUse;
+    notifyListeners();
+  }
+
+  void setSizeOptions(String sizeOptions) {
+    _sizeOptions = [sizeOptions];
+    notifyListeners();
+  }
+
+  void setSeason(List<String> season) {
+    _season = season;
+    notifyListeners();
+  }
+
+  void setMaterial(String material) {
+    _material = [material];
+    notifyListeners();
+  }
+//save methods
+
+  void saveDegreeOfLoveToDatabase(String userUid, int degree) {
+    saveClothesPropertyToDatabase(userUid, 'degreeOfLove', degree);
+    print('Saved Degree of Love to Database: $degree');
   }
 
   void saveColorToDatabase(String userUid, String color) {
@@ -180,22 +205,17 @@ class ClothesProvider with ChangeNotifier {
     saveClothesPropertyToDatabase(userUid, 'durationOfUse', durationOfUse);
   }
 
-  void saveSizeOptionsToDatabase(String userUid, List<String> sizeOptions) {
+  void saveSizeOptionsToDatabase(String userUid, String sizeOptions) {
     saveClothesPropertyToDatabase(userUid, 'sizeOptions', sizeOptions);
-    notifyListeners();
   }
 
-  void saveSeasonToDatabase(String userUid, List<String> season) {
+  void saveSeasonToDatabase(String userUid, String season) {
     saveClothesPropertyToDatabase(userUid, 'season', season);
-    notifyListeners();
   }
 
   void saveMaterialToDatabase(String userUid, List<String> material) {
     saveClothesPropertyToDatabase(userUid, 'material', material);
-    notifyListeners();
   }
-
-  //-----------
 
   void saveNotesToDatabase(String userUid, String notes) {
     saveClothesPropertyToDatabase(userUid, 'notes', notes);

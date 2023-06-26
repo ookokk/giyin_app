@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => WeatherProvider()),
         ChangeNotifierProvider(create: (context) => CalendarProvider()),
         ChangeNotifierProvider(create: (context) => ImageUploadProvider()),
+        //kullanıcı hatalı giriş yapma durumlarını kontrol et
       ],
       child: MaterialApp(
         routes: routes,
