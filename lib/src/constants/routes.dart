@@ -2,11 +2,12 @@ import 'package:f6_bootcamp/src/view/calendar/calendar_screen.dart';
 import 'package:f6_bootcamp/src/view/wardrobe/add_clothe/clothe_upload_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../view/login/forgot_password_screen.dart';
+import '../view/auth/forgot_password_screen.dart';
+import '../view/auth/login_screen.dart';
+import '../view/auth/register_screen.dart';
 import '../view/wardrobe/wardrobe_screen.dart';
 import '../view/home_screen.dart';
-import '../view/login/login_screen.dart';
-import '../view/login/register_screen.dart';
+
 import '../view/splash/splash_screen.dart';
 import '../view/weather/weather_screen.dart';
 

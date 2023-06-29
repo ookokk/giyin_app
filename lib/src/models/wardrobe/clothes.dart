@@ -1,56 +1,81 @@
+import 'dart:math';
+
 class Clothes {
   Clothes({
     required this.category,
     required this.color,
     required this.degreeOfLove,
+    required this.clotheID,
+    required this.imagePath,
     this.season,
     this.durationOfUse,
     this.name,
     this.material,
     this.notes,
     this.sizeOptions,
-    this.clotheID,
   });
-  String? clotheID;
-  //clothe id yi firebasedeki doc id ile eşleyecez sonra
+  String clotheID = Random().nextInt(1000).toString();
   String? name = '';
   String? notes = '';
+  String imagePath;
 
   int? durationOfUse;
+  String? degreeOfLove;
 
-  List<String> color = [];
+  String? color;
+  String? category;
+  String? material;
+  String? season;
+  String? sizeOptions;
 
-  List<int> degreeOfLove = [];
-  List<String> category = [];
-  List<String>? material = [];
-  List<String>? season = [];
-  List<String>? sizeOptions = [];
-
-  Map<String, dynamic> toMap() {
+  Map<String, dynamic> toJson() {
     return {
-      'category': category,
+      'clotheID': clotheID,
+      'name': name,
+      'notes': notes,
+      'durationOfUse': durationOfUse,
       'color': color,
+      'degreeOfLove': degreeOfLove,
+      'category': category,
       'material': material,
       'season': season,
-      'degreeOfLove': degreeOfLove,
-      'durationOfUse': durationOfUse,
-      'notes': notes,
       'sizeOptions': sizeOptions,
-      'name': name,
     };
   }
 
-  factory Clothes.fromMap(Map<String, dynamic> map) {
-    return Clothes(
-      durationOfUse: map['durationOfUse'],
-      name: map['name'],
-      category: List<String>.from(map['category']),
-      color: List<String>.from(map['color']),
-      material: List<String>.from(map['material']),
-      season: List<String>.from(map['season']),
-      degreeOfLove: List<int>.from(map['degreeOfLove']),
-      sizeOptions: List<String>.from(map['sizeOptions']),
-      notes: map['notes'],
-    );
+  void setDegreeOfLove(String degreeOfLove) {
+    this.degreeOfLove = degreeOfLove;
+  }
+
+  void setCategory(String category) {
+    this.category = category;
+  }
+
+  void setName(String name) {
+    this.name = name;
+  }
+
+  void setNotes(String notes) {
+    this.notes = notes;
+  }
+
+  void setColor(String color) {
+    this.color = color;
+  }
+
+  void setDurationOfUse(int durationOfUse) {
+    this.durationOfUse = durationOfUse;
+  }
+
+  void setSizeOptions(String sizeOptions) {
+    this.sizeOptions = sizeOptions;
+  }
+
+  void setSeason(String season) {
+    this.season = season;
+  }
+
+  void setMaterial(String material) {
+    this.material = material;
   }
 }
