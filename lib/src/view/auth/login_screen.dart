@@ -1,31 +1,19 @@
 import 'package:f6_bootcamp/src/constants/default_padding.dart';
 import 'package:f6_bootcamp/src/constants/text_style.dart';
 import 'package:f6_bootcamp/src/service/auth/sign_in_with_google.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/auth_components/auth_screen_button.dart';
 import '../../constants/auth_components/auth_textfield.dart';
+import '../../service/auth/auth_provider.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({
     super.key,
   });
-
-  // text editing controllers
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-
-  // sign user in method
-  void signUserIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text, password: passwordController.text);
-  }
-
-  //log out user
-  void signUserOut() {
-    FirebaseAuth.instance.signOut();
-  }
+  final AuthProvider authProvider = AuthProvider();
 
   @override
   Widget build(BuildContext context) {
@@ -80,11 +68,18 @@ class LoginScreen extends StatelessWidget {
                   // sign in button
                   AuthScreenButton(
                     buttonText: "Sign In",
-                    onTap: signUserIn,
+                    onTap: () {
+                      authProvider.signUserIn(
+                          emailController.text, passwordController.text);
+                    },
                   ),
 
                   const SizedBox(height: 26),
-
+                  IconButton(
+                      onPressed: () {
+                        print(authProvider.token);
+                      },
+                      icon: Icon(Icons.add)),
                   // or continue with
                   buildOrContinueWithDivider(),
 

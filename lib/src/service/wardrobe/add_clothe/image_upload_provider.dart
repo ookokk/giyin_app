@@ -1,15 +1,50 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:image_cropper/image_cropper.dart';
 
+import '../../../models/wardrobe/combination/combination.dart';
+
 class ImageUploadProvider extends ChangeNotifier {
   final Reference _storageReference = FirebaseStorage.instance.ref();
   List<String> clothes = [];
+
   bool loading = false;
   File? selectedImage;
+  String? imageUrl; // Store the image URL here
+
+  Combination providerCombination = Combination();
+  List<bool> selectedStatusList = [];
+
+  bool isSelected() {
+    return imageUrl != null;
+  }
+
+  void toggleSelection(int index) {
+    if (index >= 0 && index < selectedStatusList.length) {
+      selectedStatusList[index] = !selectedStatusList[index];
+    }
+  }
+
+  Future<void> uploadCombinationToFirebase() async {
+    final combineData = {
+      'name': providerCombination.name,
+      'selectedClothes': providerCombination.selectedClothes,
+      'createdDate': providerCombination.createdDate,
+    };
+
+    await FirebaseFirestore.instance
+        .collection('combinations')
+        .add(combineData)
+        .then((docRef) {
+      print('Kombin kaydedildi. ID: ${docRef.id}');
+    }).catchError((error) {
+      print('Kombin kaydedilirken bir hata oluştu: $error');
+    });
+  }
 
   Future<void> getUserClothes() async {
     try {
@@ -24,9 +59,17 @@ class ImageUploadProvider extends ChangeNotifier {
         final String downloadUrl = await item.getDownloadURL();
         clothes.add(downloadUrl);
       }
+
+      // Set the image URL to the first item in the clothes list, if available
+      if (clothes.isNotEmpty) {
+        imageUrl = clothes.first;
+      } else {
+        imageUrl = null;
+      }
     } catch (e) {
       print('Error fetching user clothes from Firebase Storage: $e');
       clothes.clear();
+      imageUrl = null;
     } finally {
       loading = false;
       notifyListeners();

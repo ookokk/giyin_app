@@ -1,5 +1,9 @@
+// ignore_for_file: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member, must_be_immutable
+
 import 'dart:io';
-import 'package:f6_bootcamp/src/clothe_list.dart';
+import 'package:f6_bootcamp/src/constants/color.dart';
+import 'package:f6_bootcamp/src/models/wardrobe/clothes/my_clothe1.dart';
+import 'package:f6_bootcamp/src/models/wardrobe/clothes/clothe_list.dart';
 import 'package:f6_bootcamp/src/constants/auth_components/auth_textfield.dart';
 
 import 'package:f6_bootcamp/src/constants/default_padding.dart';
@@ -9,9 +13,11 @@ import 'package:f6_bootcamp/src/service/wardrobe/clothes_provider.dart';
 import 'package:f6_bootcamp/src/widgets/wardrobe/string_dropdown_button.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:multi_select_flutter/chip_field/multi_select_chip_field.dart';
+import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:provider/provider.dart';
 import 'package:f6_bootcamp/src/service/wardrobe/add_clothe/image_upload_provider.dart';
-import '../../../models/wardrobe/clothes.dart';
+import '../../../models/wardrobe/clothes/clothes.dart';
 
 class ClotheUploadScreen extends StatelessWidget {
   ClotheUploadScreen({Key? key, this.screenClothe, this.userUid})
@@ -22,20 +28,9 @@ class ClotheUploadScreen extends StatelessWidget {
   String? selectedDegreeOfLoveValue;
   String? selectedCategoryValue;
   String? selectedColorValue;
+  List<String> selectedSeasonsList = [];
 
-  Clothes? screenClothe = Clothes(
-    category: "dışarı",
-    color: "kara",
-    degreeOfLove: "",
-    clotheID: "",
-    imagePath: "",
-    sizeOptions: "",
-    season: "",
-    notes: "",
-    name: "osk",
-    material: "",
-    durationOfUse: 0,
-  );
+  Clothes? screenClothe;
   String? userUid;
   final clotheNameController = TextEditingController();
   final clotheNoteController = TextEditingController();
@@ -92,10 +87,47 @@ class ClotheUploadScreen extends StatelessWidget {
                           Image.file(
                             imageUploadProvider.selectedImage!,
                             height: MediaQuery.of(context).size.height * 0.3,
+                          )
+                        else
+                          Image.asset(
+                            "assets/images/add_clothe.png",
+                            height: MediaQuery.of(context).size.height * 0.3,
                           ),
                         const SizedBox(height: 18),
                         buildTakeUploadPhotoRow(imageUploadProvider, context),
-
+                        MultiSelectChipField<String?>(
+                          headerColor: CustomColors.kDarkBlue,
+                          title:
+                              Text("Select Season", style: kMediumLargeWText),
+                          textStyle: kSmallText,
+                          items: ClotheList()
+                                  .season
+                                  ?.map((e) => MultiSelectItem(e, e))
+                                  .toList() ??
+                              [],
+                          onTap: (List<String?> values) {
+                            values.forEach((value) {
+                              if (value != null) {
+                                selectedSeasonsList.add(value);
+                                myClothe1!.setSeason(value);
+                                print(value);
+                                clothesProvider.notifyListeners();
+                              }
+                            });
+                          },
+                        ),
+                        /*IconButton(
+                            onPressed: () {
+                              print(myClothe1!.seasonOptions);
+                              print(myClothe1!.sizeOptions);
+                              print(myClothe1!.material);
+                              print(myClothe1!.degreeOfLove);
+                              print(myClothe1!.category);
+                              print(myClothe1!.color);
+                              print(myClothe1!.name);
+                              print(myClothe1!.notes);
+                            },
+                            icon: Icon(Icons.add)),*/
                         Container(
                           height: MediaQuery.of(context).size.height * 0.08,
                           width: MediaQuery.of(context).size.width,
@@ -111,10 +143,10 @@ class ClotheUploadScreen extends StatelessWidget {
                                       ClotheList().sizeOptions,
                                       "Select Size", (String? y) {
                                 selectedSizeValue = y;
-                                screenClothe
-                                    ?.setSizeOptions(selectedSizeValue!);
+
+                                myClothe1?.setSizeOptions(selectedSizeValue!);
+
                                 clothesProvider.notifyListeners();
-                                print(screenClothe!.sizeOptions);
                               })),
                             ],
                           ),
@@ -134,8 +166,8 @@ class ClotheUploadScreen extends StatelessWidget {
                                       ClotheList().material,
                                       "Select Material", (String? y) {
                                 selectedMaterialValue = y;
+                                myClothe1!.setMaterial(selectedMaterialValue!);
                                 clothesProvider.notifyListeners();
-                                print(screenClothe!.material);
                               })),
                             ],
                           ),
@@ -156,8 +188,9 @@ class ClotheUploadScreen extends StatelessWidget {
                                       ClotheList().degreeOfLove,
                                       "Select Degree Of Love", (String? y) {
                                 selectedDegreeOfLoveValue = y;
+                                myClothe1!.setDegreeOfLove(
+                                    selectedDegreeOfLoveValue!);
                                 clothesProvider.notifyListeners();
-                                print(screenClothe!.degreeOfLove);
                               })),
                             ],
                           ),
@@ -178,8 +211,9 @@ class ClotheUploadScreen extends StatelessWidget {
                                         ClotheList().category,
                                         "Select Category", (String? y) {
                                   selectedCategoryValue = y;
+                                  myClothe1!
+                                      .setCategory(selectedCategoryValue!);
                                   clothesProvider.notifyListeners();
-                                  print(screenClothe!.category);
                                 })),
                               ],
                             )),
@@ -198,8 +232,8 @@ class ClotheUploadScreen extends StatelessWidget {
                                         ClotheList().color,
                                         "Select Color", (String? y) {
                                   selectedColorValue = y;
+                                  myClothe1!.setColor(selectedColorValue!);
                                   clothesProvider.notifyListeners();
-                                  print(screenClothe!.color);
                                 })),
                               ],
                             )),
@@ -211,6 +245,22 @@ class ClotheUploadScreen extends StatelessWidget {
                             controller: clotheNoteController,
                             hintText: "Additional Note",
                             obscureText: false),
+                        FloatingActionButton(
+                            backgroundColor: CustomColors.kDarkBlue,
+                            onPressed: () {
+                              File? image = imageUploadProvider.selectedImage;
+                              if (image != null) {
+                                imageUploadProvider.uploadImageToStorage(image);
+                              } else {
+                                print('No image selected!');
+                              }
+                              myClothe1!.setClotheID();
+                              myClothe1!.setName(clotheNameController.text);
+                              myClothe1!.setNotes(clotheNoteController.text);
+                              clothesProvider
+                                  .addClotheToFirebase(screenClothe!);
+                            },
+                            child: Icon(Icons.save, size: 32))
                       ],
                     ),
                   ),
@@ -248,20 +298,6 @@ class ClotheUploadScreen extends StatelessWidget {
               }
             },
             text: "Take Photo",
-          ),
-        ),
-        const SizedBox(width: 8),
-        Expanded(
-          child: UploadPhotoButton(
-            onPressed: () {
-              File? image = imageUploadProvider.selectedImage;
-              if (image != null) {
-                imageUploadProvider.uploadImageToStorage(image);
-              } else {
-                print('No image selected!');
-              }
-            },
-            text: "Upload Photo",
           ),
         ),
       ],

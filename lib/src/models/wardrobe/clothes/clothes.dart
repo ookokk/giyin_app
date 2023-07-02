@@ -7,25 +7,25 @@ class Clothes {
     required this.degreeOfLove,
     required this.clotheID,
     required this.imagePath,
-    this.season,
+    this.seasonOptions,
     this.durationOfUse,
     this.name,
     this.material,
     this.notes,
     this.sizeOptions,
   });
-  String clotheID = Random().nextInt(1000).toString();
-  String? name = '';
-  String? notes = '';
-  String imagePath;
-
+  List<String>? seasonOptions;
   int? durationOfUse;
   String? degreeOfLove;
 
   String? color;
   String? category;
   String? material;
-  String? season;
+  String clotheID;
+  String? name = '';
+  String? notes = '';
+  String imagePath;
+
   String? sizeOptions;
 
   Map<String, dynamic> toJson() {
@@ -38,9 +38,14 @@ class Clothes {
       'degreeOfLove': degreeOfLove,
       'category': category,
       'material': material,
-      'season': season,
+      'season': seasonOptions,
       'sizeOptions': sizeOptions,
     };
+  }
+
+  void setClotheID() {
+    Random random = Random();
+    clotheID = random.nextInt(1000000).toString();
   }
 
   void setDegreeOfLove(String degreeOfLove) {
@@ -72,7 +77,13 @@ class Clothes {
   }
 
   void setSeason(String season) {
-    this.season = season;
+    if (seasonOptions == null) {
+      seasonOptions = [];
+    }
+
+    if (!seasonOptions!.contains(season)) {
+      seasonOptions!.add(season);
+    }
   }
 
   void setMaterial(String material) {

@@ -1,4 +1,4 @@
-import 'package:f6_bootcamp/src/models/wardrobe/clothes.dart';
+import 'package:f6_bootcamp/src/models/wardrobe/clothes/clothes.dart';
 
 Clothes? myClothe1 = Clothes(
     category: "",
@@ -7,7 +7,7 @@ Clothes? myClothe1 = Clothes(
     clotheID: "",
     imagePath: "",
     sizeOptions: "",
-    season: "",
+    seasonOptions: [],
     notes: "",
     name: "",
     material: "",

@@ -1,4 +1,5 @@
-import 'package:f6_bootcamp/my_clothe1.dart';
+import 'package:f6_bootcamp/src/models/wardrobe/clothes/tab_bar_provider.dart';
+import 'package:f6_bootcamp/src/view/auth/auth_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -8,8 +9,6 @@ import 'src/service/firebase_options.dart';
 import 'src/service/wardrobe/add_clothe/image_upload_provider.dart';
 import 'src/service/weather/weather_provider.dart';
 import 'src/service/calendar/calendar_provider.dart';
-
-import 'src/view/wardrobe/add_clothe/clothe_upload_screen.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -32,9 +31,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         routes: routes,
         debugShowCheckedModeBanner: false,
-        home: ClotheUploadScreen(
-          screenClothe: myClothe1,
-        ),
+        home: AuthScreen(),
       ),
     );
   }
