@@ -130,6 +130,11 @@ Sprint Review katılımcıları: Beyza Akcan, Dilara Maya Taşcı, Usame Altın�
    Projenin istenilen düzeye gelmesini sağlamak için daha çok zaman ayrılması gerektiğine karar verilmiştir.
 
 
+---
+
+## Product Backlog URL
+
+[Flutter Team 6 Notion Backlog Board](https://www.notion.so/e12b45d9475e4d28bc8ec76476316a03?v=9f50567ba551486eb9867075bc6077c4)
 
 ---
 
