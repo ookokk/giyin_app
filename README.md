@@ -116,9 +116,9 @@ Alınan kararlar: Uygulama için veritabanı olarak firebase servisleri aktif ed
 
 - **Ürün Durumu**: Ekran görüntüleri:
   ![Screenshot 1](![2023-07-03 (7)](https://github.com/ookokk/f6_bootcamp/assets/135658088/6f639059-8b73-45cc-93f1-4dbc4b42bd24))
-  )
-  ![Screenshot 2](
-  ![Screenshot 3]
+  ![Screenshot 2](![2023-07-03 (5)](https://github.com/ookokk/f6_bootcamp/assets/135658088/f7adccf6-ab50-4bf6-847f-1cbaed7c3096)
+  ![Screenshot 3](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/dde420f6-7dcc-45a7-b4a2-61a02e24530a)
+
 - **Sprint Review**: 
 Alınan kararlar:Kıyafet ekleme sayfası ve gardırop sayfası kodlanmış, tasarımları planlanmış, eksiklikleri değerlendirilmiştir. 
 Sprint Review katılımcıları: Beyza Akcan, Dilara Maya Taşcı, Usame Altınışık, Osman Kök, Fatih Özcan
