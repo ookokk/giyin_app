@@ -105,9 +105,10 @@ Alınan kararlar: Uygulama için veritabanı olarak firebase servisleri aktif ed
 
 - **Sprint içinde tamamlanması tahmin edilen puan**: 110 Puan
 
-- - **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 340 puanlık backlog bulunmaktadır. Bu sprintte bazı günlerin resmi tatil olması sebebiyle en az 110 puanın tamamlanmasına karar verildi.
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 340 puanlık backlog bulunmaktadır. Bu sprintte bazı günlerin resmi tatil olması sebebiyle en az 110 puanın tamamlanmasına karar verildi.
 
-- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü Whatsapp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: ![Sprint 2 Daily Scrum Chats] 
+- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü Whatsapp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır: ![Sprint 2 Daily Scrum Chats]![2023-07-03 (2)](https://github.com/ookokk/f6_bootcamp/assets/135658088/00b67756-3af7-4520-bf1e-df73d67c969e)
+
 
 - **Sprint board update**: Sprint board screenshotları: 
 ![Backlog 1](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint2Documents/2022-05-22%2019_25_30-Window.png) 
@@ -118,8 +119,8 @@ Alınan kararlar: Uygulama için veritabanı olarak firebase servisleri aktif ed
   ![Screenshot 2](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint2Documents/2.jpeg)
   ![Screenshot 3](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint2Documents/3.jpeg)
 - **Sprint Review**: 
-Alınan kararlar: Kullanıcı temel sayfaların arayüzleri, algoritmaları kodlanmış, firebase servislerine bağlantıları yapılmış ve eksiklikleri değerlendirilmiştir. 
-Sprint Review katılımcıları: Mustafa Aksoy, Yunus Emre Gürel, Sümeyye Aydoğan 
+Alınan kararlar:Kıyafet ekleme sayfası ve gardırop sayfası kodlanmış, tasarımları planlanmış, eksiklikleri değerlendirilmiştir. 
+Sprint Review katılımcıları: Beyza Akcan, Dilara Maya Taşcı, Usame Altınışık, Osman Kök, Fatih Özcan
 
 - **Sprint Retrospective:**
 
