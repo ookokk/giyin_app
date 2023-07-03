@@ -96,7 +96,7 @@ Alınan kararlar: Uygulama için veritabanı olarak firebase servisleri aktif ed
 
 ## Product Backlog URL
 
-
+[Flutter Team 6 Notion Backlog Board]https://www.notion.so/7d4e1f0e17fa47ebac6f38a81a35a2f1?v=efb271682ca0491a8eb28801fa0eb8ef)
 ---
 
 # Sprint 2
@@ -127,7 +127,7 @@ Sprint Review katılımcıları: Beyza Akcan, Dilara Maya Taşcı, Usame Altın�
 
    Projenin istenilen düzeye gelmesini sağlamak için daha çok zaman ayrılması gerektiğine karar verilmiştir.
 
-[Flutter Team 6 Notion Backlog Board]https://www.notion.so/7d4e1f0e17fa47ebac6f38a81a35a2f1?v=efb271682ca0491a8eb28801fa0eb8ef)
+
 
 ---
 
