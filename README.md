@@ -101,9 +101,13 @@ Alınan kararlar: Uygulama için veritabanı olarak firebase servisleri aktif ed
 
 # Sprint 2
 
-- **Sprint içinde tamamlanması tahmin edilen puan**: 120 Puan
+- **Sprint notları**: Kıyafet ekleme sayfası, gardırop sayfası ve ana ekran sayfası tasarlandı.
 
-- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü Whatsapp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: [Sprint 2 Daily Scrum Chats](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint2Documents/DailyScrumMeetingNotesSprint2.docx?raw=true)
+- **Sprint içinde tamamlanması tahmin edilen puan**: 110 Puan
+
+- - **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 340 puanlık backlog bulunmaktadır. Bu sprintte bazı günlerin resmi tatil olması sebebiyle en az 110 puanın tamamlanmasına karar verildi.
+
+- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü Whatsapp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg veya word olarak Readme'de tarafımızdan paylaşılmaktadır: ![Sprint 2 Daily Scrum Chats] 
 
 - **Sprint board update**: Sprint board screenshotları: 
 ![Backlog 1](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint2Documents/2022-05-22%2019_25_30-Window.png) 
@@ -119,7 +123,7 @@ Sprint Review katılımcıları: Mustafa Aksoy, Yunus Emre Gürel, Sümeyye Aydo
 
 - **Sprint Retrospective:**
 
-  - Takım üyelerinin gelecek sprintlerde daha fazla aktif olması gerektiğine vurgu yapılmıştır.
+  - Projenin istenilen düzeye gelmesini sağlamak için daha çok zaman ayrılması gerektiğine karar verilmiştir.
 
 [Flutter Team 6 Notion Backlog Board]https://www.notion.so/7d4e1f0e17fa47ebac6f38a81a35a2f1?v=efb271682ca0491a8eb28801fa0eb8ef)
 
