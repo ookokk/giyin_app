@@ -115,16 +115,16 @@ Alınan kararlar: Uygulama için veritabanı olarak firebase servisleri aktif ed
 
 
 - **Ürün Durumu**: Ekran görüntüleri:
-  ![Screenshot 1](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint2Documents/1.jpeg)
-  ![Screenshot 2](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint2Documents/2.jpeg)
-  ![Screenshot 3](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint2Documents/3.jpeg)
+  ![Screenshot 1]![2023-07-03 (7)](https://github.com/ookokk/f6_bootcamp/assets/135658088/6f639059-8b73-45cc-93f1-4dbc4b42bd24)
+  ![Screenshot 2]
+  ![Screenshot 3]
 - **Sprint Review**: 
 Alınan kararlar:Kıyafet ekleme sayfası ve gardırop sayfası kodlanmış, tasarımları planlanmış, eksiklikleri değerlendirilmiştir. 
 Sprint Review katılımcıları: Beyza Akcan, Dilara Maya Taşcı, Usame Altınışık, Osman Kök, Fatih Özcan
 
 - **Sprint Retrospective:**
 
-  - Projenin istenilen düzeye gelmesini sağlamak için daha çok zaman ayrılması gerektiğine karar verilmiştir.
+   Projenin istenilen düzeye gelmesini sağlamak için daha çok zaman ayrılması gerektiğine karar verilmiştir.
 
 [Flutter Team 6 Notion Backlog Board]https://www.notion.so/7d4e1f0e17fa47ebac6f38a81a35a2f1?v=efb271682ca0491a8eb28801fa0eb8ef)
 
