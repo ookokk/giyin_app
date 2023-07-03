@@ -115,8 +115,9 @@ Alınan kararlar: Uygulama için veritabanı olarak firebase servisleri aktif ed
 
 
 - **Ürün Durumu**: Ekran görüntüleri:
-  ![Screenshot 1]![2023-07-03 (7)](https://github.com/ookokk/f6_bootcamp/assets/135658088/6f639059-8b73-45cc-93f1-4dbc4b42bd24)
-  ![Screenshot 2]
+  ![Screenshot 1](![2023-07-03 (7)](https://github.com/ookokk/f6_bootcamp/assets/135658088/6f639059-8b73-45cc-93f1-4dbc4b42bd24))
+  )
+  ![Screenshot 2](
   ![Screenshot 3]
 - **Sprint Review**: 
 Alınan kararlar:Kıyafet ekleme sayfası ve gardırop sayfası kodlanmış, tasarımları planlanmış, eksiklikleri değerlendirilmiştir. 
