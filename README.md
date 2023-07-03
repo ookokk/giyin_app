@@ -111,7 +111,9 @@ Alınan kararlar: Uygulama için veritabanı olarak firebase servisleri aktif ed
 
 
 - **Sprint board update**: Sprint board screenshotları: 
-![Backlog 1](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint2Documents/2022-05-22%2019_25_30-Window.png) 
+![Backlog 1](![2023-07-03 (10)](https://github.com/ookokk/f6_bootcamp/assets/135658088/e1b20297-a7ad-4fd4-9ffb-1ca4682a8c1c)
+)
+![Backlog 2](![2023-07-03 (8)](https://github.com/ookokk/f6_bootcamp/assets/135658088/67555f7b-e49a-4982-ab96-7124c95dc256))
 
 
 - **Ürün Durumu**: Ekran görüntüleri:
