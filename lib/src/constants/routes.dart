@@ -1,6 +1,7 @@
 import 'package:f6_bootcamp/src/models/wardrobe/clothes/my_clothe1.dart';
 import 'package:f6_bootcamp/src/view/calendar/calendar_screen.dart';
 import 'package:f6_bootcamp/src/view/wardrobe/add_clothe/clothe_upload_screen.dart';
+import 'package:f6_bootcamp/src/view/wardrobe/create_combin/create_combin_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../view/auth/forgot_password_screen.dart';
@@ -19,11 +20,12 @@ final Map<String, WidgetBuilder> routes = {
   '/register': (context) => RegisterScreen(),
   '/forgotPassword': (context) => ForgotPasswordScreen(),
 
-  '/home': (context) => HomeScreen(),
+  '/home': (context) => const HomeScreen(),
   //GARDROP
   '/gardrop': (context) => const WardrobeScreen(),
   //CREATE CLOTHE
   '/clotheUpload': (context) => ClotheUploadScreen(screenClothe: myClothe1),
+  '/createCombination': (context) => CreateCombinationScreen(),
 
   //CALENDAR
   '/calendar': (context) => CalendarScreen(),

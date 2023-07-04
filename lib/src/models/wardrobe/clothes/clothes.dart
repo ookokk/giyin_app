@@ -77,9 +77,7 @@ class Clothes {
   }
 
   void setSeason(String season) {
-    if (seasonOptions == null) {
-      seasonOptions = [];
-    }
+    seasonOptions ??= [];
 
     if (!seasonOptions!.contains(season)) {
       seasonOptions!.add(season);

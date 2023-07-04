@@ -17,34 +17,6 @@ class ImageUploadProvider extends ChangeNotifier {
   String? imageUrl; // Store the image URL here
 
   Combination providerCombination = Combination();
-  List<bool> selectedStatusList = [];
-
-  bool isSelected() {
-    return imageUrl != null;
-  }
-
-  void toggleSelection(int index) {
-    if (index >= 0 && index < selectedStatusList.length) {
-      selectedStatusList[index] = !selectedStatusList[index];
-    }
-  }
-
-  Future<void> uploadCombinationToFirebase() async {
-    final combineData = {
-      'name': providerCombination.name,
-      'selectedClothes': providerCombination.selectedClothes,
-      'createdDate': providerCombination.createdDate,
-    };
-
-    await FirebaseFirestore.instance
-        .collection('combinations')
-        .add(combineData)
-        .then((docRef) {
-      print('Kombin kaydedildi. ID: ${docRef.id}');
-    }).catchError((error) {
-      print('Kombin kaydedilirken bir hata oluştu: $error');
-    });
-  }
 
   Future<void> getUserClothes() async {
     try {
@@ -74,6 +46,24 @@ class ImageUploadProvider extends ChangeNotifier {
       loading = false;
       notifyListeners();
     }
+  }
+
+  Future<void> uploadCombinationToFirebase(Combination newCombination) async {
+    final combineData = {
+      'dateToWear': newCombination.dateToWear,
+      'id': newCombination.id,
+      'selectedClothes': newCombination.selectedClothedUrls,
+      'createdDate': newCombination.createdDate,
+    };
+
+    await FirebaseFirestore.instance
+        .collection('combinations')
+        .add(combineData)
+        .then((docRef) {
+      print('Kombin kaydedildi. ID: ${docRef.id}');
+    }).catchError((error) {
+      print('Kombin kaydedilirken bir hata oluştu: $error');
+    });
   }
 
   Future<String> uploadImageToStorage(File image) async {

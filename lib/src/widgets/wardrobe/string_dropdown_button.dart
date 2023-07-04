@@ -36,11 +36,14 @@ DropdownButtonHideUnderline StringDropdownButton(
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(14),
             border: Border.all(color: Colors.black),
-            color: CustomColors.kBeige),
+            color: CustomColors.kLightBlue),
         elevation: 2),
     iconStyleData: const IconStyleData(
-      icon: Icon(Icons.arrow_forward_ios),
-      iconSize: 14,
+      icon: Icon(
+        Icons.arrow_forward_ios,
+        color: Colors.black,
+      ),
+      iconSize: 18,
       iconEnabledColor: Colors.yellow,
       iconDisabledColor: Colors.grey,
     ),
@@ -49,7 +52,7 @@ DropdownButtonHideUnderline StringDropdownButton(
       width: MediaQuery.of(context).size.width * 0.75,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14),
-        color: Colors.redAccent,
+        color: CustomColors.kKoyuBeyazBG,
       ),
       offset: const Offset(-20, 0),
       scrollbarTheme: ScrollbarThemeData(

@@ -1,29 +1,28 @@
 class Combination {
   Combination({
     this.id,
-    this.name,
-    this.selectedClothes,
+    this.selectedClothedUrls,
     this.createdDate,
+    this.dateToWear,
   });
-
+  DateTime? dateToWear;
   String? id;
-  String? name;
-  List<String>? selectedClothes;
-  DateTime? createdDate;
 
-  set setId(String newId) {
+  List<String>? selectedClothedUrls;
+  DateTime? createdDate;
+  void setDateToWear(DateTime newDateToWear) {
+    dateToWear = newDateToWear;
+  }
+
+  void setId(String newId) {
     id = newId;
   }
 
-  set setName(String newName) {
-    name = newName;
+  void addToSelectedClothes(String newClothe) {
+    selectedClothedUrls!.add(newClothe);
   }
 
-  set addToSelectedClothes(String newClothe) {
-    selectedClothes!.add(newClothe);
-  }
-
-  set setCreatedDate(DateTime newCreatedDate) {
+  void setCreatedDate(DateTime newCreatedDate) {
     createdDate = newCreatedDate;
   }
 }

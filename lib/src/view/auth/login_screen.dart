@@ -116,7 +116,7 @@ class LoginScreen extends StatelessWidget {
           },
           child: Text(
             'Register now',
-            style: kSmallBlueText,
+            style: kSmallBlackText,
           ),
         ),
       ],
@@ -164,7 +164,7 @@ class LoginScreen extends StatelessWidget {
             },
             child: Text(
               'Forgot Password?',
-              style: kSmallBlueText,
+              style: kSmallBlackText,
             ),
           ),
         ],

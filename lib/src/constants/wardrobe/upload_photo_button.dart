@@ -19,9 +19,9 @@ class UploadPhotoButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         foregroundColor: Colors.white,
-        backgroundColor: CustomColors.kDarkGray,
+        backgroundColor: CustomColors.kMorGibi,
         elevation: 2,
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(18),
         ),

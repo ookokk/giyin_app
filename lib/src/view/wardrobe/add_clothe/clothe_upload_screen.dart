@@ -54,27 +54,7 @@ class ClotheUploadScreen extends StatelessWidget {
             //size
 
             return Scaffold(
-              appBar: AppBar(
-                //edit butonuna fonksiyon ata
-                actions: [
-                  IconButton(
-                      onPressed: () {
-                        if (imageUploadProvider.selectedImage != null) {
-                          imageUploadProvider.cropImage(
-                            context,
-                            imageUploadProvider.selectedImage!,
-                          );
-                        }
-                      },
-                      icon: const Icon(Icons.edit))
-                ],
-                backgroundColor: Colors.black87,
-                leading: IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(Icons.arrow_back)),
-              ),
+              backgroundColor: CustomColors.kKoyuBeyazBG,
               body: SingleChildScrollView(
                   child: SafeArea(
                 child: Padding(
@@ -95,10 +75,14 @@ class ClotheUploadScreen extends StatelessWidget {
                           ),
                         const SizedBox(height: 18),
                         buildTakeUploadPhotoRow(imageUploadProvider, context),
+                        const SizedBox(height: 18),
                         MultiSelectChipField<String?>(
-                          headerColor: CustomColors.kDarkBlue,
-                          title:
-                              Text("Select Season", style: kMediumLargeWText),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadiusDirectional.circular(24),
+                            color: Colors.grey.shade300,
+                          ),
+                          headerColor: CustomColors.kGrimsi,
+                          title: Text("Select Season", style: kMediumText),
                           textStyle: kSmallText,
                           items: ClotheList()
                                   .season
@@ -110,30 +94,17 @@ class ClotheUploadScreen extends StatelessWidget {
                               if (value != null) {
                                 selectedSeasonsList.add(value);
                                 myClothe1!.setSeason(value);
-                                print(value);
                                 clothesProvider.notifyListeners();
                               }
                             });
                           },
                         ),
-                        /*IconButton(
-                            onPressed: () {
-                              print(myClothe1!.seasonOptions);
-                              print(myClothe1!.sizeOptions);
-                              print(myClothe1!.material);
-                              print(myClothe1!.degreeOfLove);
-                              print(myClothe1!.category);
-                              print(myClothe1!.color);
-                              print(myClothe1!.name);
-                              print(myClothe1!.notes);
-                            },
-                            icon: Icon(Icons.add)),*/
                         Container(
-                          height: MediaQuery.of(context).size.height * 0.08,
+                          height: MediaQuery.of(context).size.height * 0.06,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20)),
-                          margin: EdgeInsets.all(10),
+                          margin: const EdgeInsets.all(10),
                           child: Column(
                             children: [
                               Expanded(
@@ -152,11 +123,11 @@ class ClotheUploadScreen extends StatelessWidget {
                           ),
                         ),
                         Container(
-                          height: MediaQuery.of(context).size.height * 0.08,
+                          height: MediaQuery.of(context).size.height * 0.06,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20)),
-                          margin: EdgeInsets.all(10),
+                          margin: const EdgeInsets.all(10),
                           child: Column(
                             children: [
                               Expanded(
@@ -174,7 +145,7 @@ class ClotheUploadScreen extends StatelessWidget {
                         ),
 
                         Container(
-                          height: MediaQuery.of(context).size.height * 0.08,
+                          height: MediaQuery.of(context).size.height * 0.06,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20)),
@@ -197,7 +168,7 @@ class ClotheUploadScreen extends StatelessWidget {
                         ),
                         //select category
                         Container(
-                            height: MediaQuery.of(context).size.height * 0.08,
+                            height: MediaQuery.of(context).size.height * 0.06,
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20)),
@@ -218,7 +189,7 @@ class ClotheUploadScreen extends StatelessWidget {
                               ],
                             )),
                         Container(
-                            height: MediaQuery.of(context).size.height * 0.08,
+                            height: MediaQuery.of(context).size.height * 0.06,
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20)),
@@ -237,30 +208,52 @@ class ClotheUploadScreen extends StatelessWidget {
                                 })),
                               ],
                             )),
+                        const SizedBox(height: 16),
                         AuthTextField(
                             controller: clotheNameController,
                             hintText: "Clothe Name ",
                             obscureText: false),
+                        const SizedBox(height: 8),
                         AuthTextField(
                             controller: clotheNoteController,
                             hintText: "Additional Note",
                             obscureText: false),
-                        FloatingActionButton(
-                            backgroundColor: CustomColors.kDarkBlue,
+                        const SizedBox(height: 8),
+                        ElevatedButton(
+                            style: ButtonStyle(
+                              minimumSize: MaterialStateProperty.all<Size>(
+                                  const Size(50, 50)),
+                              maximumSize: MaterialStateProperty.all<Size>(
+                                  const Size(250, 170)),
+                              shape: MaterialStateProperty.all<OutlinedBorder>(
+                                const StadiumBorder(),
+                              ),
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  CustomColors.kLightBlue),
+                            ),
                             onPressed: () {
                               File? image = imageUploadProvider.selectedImage;
                               if (image != null) {
                                 imageUploadProvider.uploadImageToStorage(image);
-                              } else {
-                                print('No image selected!');
-                              }
+                              } else {}
                               myClothe1!.setClotheID();
                               myClothe1!.setName(clotheNameController.text);
                               myClothe1!.setNotes(clotheNoteController.text);
                               clothesProvider
                                   .addClotheToFirebase(screenClothe!);
                             },
-                            child: Icon(Icons.save, size: 32))
+                            child: Row(children: [
+                              Expanded(
+                                child: Text(
+                                  "Save Clothe",
+                                  style: kMediumText,
+                                ),
+                              ),
+                              const Icon(
+                                Icons.save,
+                                color: Colors.black,
+                              )
+                            ]))
                       ],
                     ),
                   ),
@@ -279,6 +272,7 @@ class ClotheUploadScreen extends StatelessWidget {
       children: [
         Expanded(
           child: UploadPhotoButton(
+            textStyle: kSmallBlackText,
             onPressed: () {
               imageUploadProvider.pickImage(ImageSource.gallery);
             },
@@ -288,6 +282,7 @@ class ClotheUploadScreen extends StatelessWidget {
         const SizedBox(width: 8),
         Expanded(
           child: UploadPhotoButton(
+            textStyle: kSmallBlackText,
             onPressed: () {
               imageUploadProvider.pickImage(ImageSource.camera);
               if (imageUploadProvider.selectedImage != null) {

@@ -22,12 +22,12 @@ class AuthTextField extends StatelessWidget {
         obscureText: obscureText,
         decoration: InputDecoration(
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white),
+              borderSide: BorderSide(color: Colors.black12),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Colors.grey.shade400),
             ),
-            fillColor: Colors.grey.shade200,
+            fillColor: Colors.grey.shade300,
             filled: true,
             hintText: hintText,
             hintStyle: kSmallText),
