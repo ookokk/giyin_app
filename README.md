@@ -96,7 +96,45 @@ Alınan kararlar: Uygulama için veritabanı olarak firebase servisleri aktif ed
 
 ## Product Backlog URL
 
-[Flutter Team 6 Notion Backlog Board]https://www.notion.so/7d4e1f0e17fa47ebac6f38a81a35a2f1?v=efb271682ca0491a8eb28801fa0eb8ef)
+[Flutter Team 6 Notion Backlog Board](https://www.notion.so/7d4e1f0e17fa47ebac6f38a81a35a2f1?v=efb271682ca0491a8eb28801fa0eb8ef)
+---
+
+# Sprint 2
+
+- **Sprint notları**: Kıyafet ekleme sayfası, gardırop sayfası ve ana ekran sayfası tasarlandı.
+
+- **Sprint içinde tamamlanması tahmin edilen puan**: 110 Puan
+
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 340 puanlık backlog bulunmaktadır. Bu sprintte bazı günlerin resmi tatil olması sebebiyle en az 110 puanın tamamlanmasına karar verildi.
+
+- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü Whatsapp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır: ![Sprint 2 Daily Scrum Chats]![2023-07-03 (2)](https://github.com/ookokk/f6_bootcamp/assets/135658088/00b67756-3af7-4520-bf1e-df73d67c969e)
+
+
+- **Sprint board update**: Sprint board screenshotları: 
+![Backlog 1](![2023-07-03 (10)](https://github.com/ookokk/f6_bootcamp/assets/135658088/e1b20297-a7ad-4fd4-9ffb-1ca4682a8c1c)
+)
+![Backlog 2](![2023-07-03 (8)](https://github.com/ookokk/f6_bootcamp/assets/135658088/67555f7b-e49a-4982-ab96-7124c95dc256))
+
+
+- **Ürün Durumu**: Ekran görüntüleri:
+  ![Screenshot 1](![2023-07-03 (7)](https://github.com/ookokk/f6_bootcamp/assets/135658088/6f639059-8b73-45cc-93f1-4dbc4b42bd24))
+  ![Screenshot 2](![2023-07-03 (5)](https://github.com/ookokk/f6_bootcamp/assets/135658088/f7adccf6-ab50-4bf6-847f-1cbaed7c3096)
+  ![Screenshot 3](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/dde420f6-7dcc-45a7-b4a2-61a02e24530a)
+
+- **Sprint Review**: 
+Alınan kararlar:Kıyafet ekleme sayfası ve gardırop sayfası kodlanmış, tasarımları planlanmış, eksiklikleri değerlendirilmiştir. 
+Sprint Review katılımcıları: Beyza Akcan, Dilara Maya Taşcı, Usame Altınışık, Osman Kök, Fatih Özcan
+
+- **Sprint Retrospective:**
+
+   Projenin istenilen düzeye gelmesini sağlamak için daha çok zaman ayrılması gerektiğine karar verilmiştir.
+
+
+---
+
+## Product Backlog URL
+
+[Flutter Team 6 Notion Backlog Board](https://www.notion.so/e12b45d9475e4d28bc8ec76476316a03?v=9f50567ba551486eb9867075bc6077c4)
 
 ---
 
