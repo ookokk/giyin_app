@@ -1,7 +1,7 @@
-import 'package:f6_bootcamp/src/constants/text_style.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../constants/auth_components/auth_textfield.dart';
+import '../../constants/text_style.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({

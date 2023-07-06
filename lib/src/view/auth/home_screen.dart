@@ -1,11 +1,12 @@
-import 'package:f6_bootcamp/src/view/wardrobe/add_clothe/clothe_upload_screen.dart';
-import 'package:f6_bootcamp/src/widgets/custom_botom_navigation_bar.dart';
+import 'package:Giyin/src/view/calendar/calendar_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../models/wardrobe/clothes/my_clothe1.dart';
-import 'wardrobe/create_combin/create_combin_screen.dart';
-import 'weather/weather_screen.dart';
+import '../../constants/color.dart';
+import '../../models/wardrobe/clothes/my_clothe1.dart';
+import '../../widgets/custom_botom_navigation_bar.dart';
+import '../wardrobe/add_clothe/clothe_upload_screen.dart';
+import '../weather/weather_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -22,10 +23,19 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    Container(), // Boş bir Container kullanarak örnek sayfaları temsil ediyoruz.
+    Container(
+        child: Center(
+      child: Column(children: [
+        Expanded(
+          child: Image.asset(
+            "assets/images/home_logo.png",
+          ),
+        )
+      ]),
+    )),
     ClotheUploadScreen(screenClothe: myClothe1),
     const WeatherScreen(),
-    CreateCombinationScreen(),
+    CalendarScreen(),
   ];
 
   void onItemSelected(int index) {
@@ -37,13 +47,17 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CustomColors.kKoyuBeyazBG,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: CustomColors.kMaviAcik,
         actions: [
-          IconButton(onPressed: widget.logOut, icon: const Icon(Icons.logout))
+          IconButton(
+            onPressed: widget.logOut,
+            icon: const Icon(Icons.logout),
+          ),
         ],
         leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             onPressed: () {
               Navigator.pop(context);
             }),

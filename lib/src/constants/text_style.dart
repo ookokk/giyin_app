@@ -12,6 +12,11 @@ TextStyle kMediumText = const TextStyle(
   fontSize: 20,
   color: Colors.black,
 );
+TextStyle kMediumBeyazText = const TextStyle(
+  fontFamily: 'OpenSans-Medium',
+  fontSize: 20,
+  color: Colors.white,
+);
 TextStyle kMediumBlueText = const TextStyle(
   fontFamily: 'OpenSans-Medium',
   fontSize: 20,

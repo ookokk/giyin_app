@@ -1,3 +1,4 @@
+import 'package:Giyin/src/constants/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -31,9 +32,13 @@ class CalendarScreen extends StatelessWidget {
           floatingActionButtonLocation:
               FloatingActionButtonLocation.centerDocked,
           floatingActionButton: ElevatedButton(
-            child: const Text('Create Combination'),
+            style: ElevatedButton.styleFrom(shape: const StadiumBorder()),
+            child: Text(
+              'Create Combination',
+              style: kMediumBeyazText,
+            ),
             onPressed: () {
-              //kombin oluştur sayfası
+              Navigator.pushNamed(context, '/createCombination');
             },
           ),
         ),

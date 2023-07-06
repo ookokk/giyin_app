@@ -1,5 +1,6 @@
-import 'package:f6_bootcamp/src/constants/color.dart';
 import 'package:flutter/material.dart';
+
+import '../color.dart';
 
 class UploadPhotoButton extends StatelessWidget {
   final VoidCallback onPressed;

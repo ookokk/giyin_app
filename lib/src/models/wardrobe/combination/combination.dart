@@ -7,9 +7,9 @@ class Combination {
   });
   DateTime? dateToWear;
   String? id;
-
   List<String>? selectedClothedUrls;
   DateTime? createdDate;
+
   void setDateToWear(DateTime newDateToWear) {
     dateToWear = newDateToWear;
   }

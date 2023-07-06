@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../constants/color.dart';
 import '../../constants/text_style.dart';
 
-DropdownButtonHideUnderline StringDropdownButton(
+DropdownButtonHideUnderline stringDropdownButton(
     BuildContext context,
     String? selectedValue,
     List<String>? listOfClotheProperty,

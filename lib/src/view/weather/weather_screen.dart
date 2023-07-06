@@ -1,9 +1,9 @@
-import 'package:f6_bootcamp/src/constants/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 import '../../constants/color.dart';
 import '../../constants/default_padding.dart';
+import '../../constants/text_style.dart';
 import '../../service/weather/weather_provider.dart';
 import '../../service/weather/weather_forecast.dart';
 
@@ -17,7 +17,7 @@ class WeatherScreen extends StatelessWidget {
           weatherData.getWeatherImage(weatherData.weatherDescriptionToday);
 
       return Scaffold(
-        backgroundColor: CustomColors.kBlueWeatherBG,
+        backgroundColor: Colors.white54,
         body: SafeArea(
           child: SingleChildScrollView(
             padding: kDefaultPadding,
@@ -27,22 +27,22 @@ class WeatherScreen extends StatelessWidget {
                 children: [
                   buildLocationCityRow(weatherData),
                   const SizedBox(
-                    height: 16,
+                    height: 8,
+                  ),
+                  const SizedBox(
+                    height: 8,
                   ),
                   buildUpdateButton(weatherData),
-                  const SizedBox(
-                    height: 16,
-                  ),
                   Image.asset(
                     weatherImage,
-                    width: MediaQuery.of(context).size.width * 0.5,
+                    width: MediaQuery.of(context).size.width * 0.35,
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 8),
                   Text(
                     '${weatherData.temperature.toInt()}°',
                     style: kXXLargeText,
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 8),
                   Text(
                     weatherData.weatherDescriptionToday,
                     style: kLargeText,
@@ -63,7 +63,11 @@ class WeatherScreen extends StatelessWidget {
                     color: Colors.white,
                   ),
                   const SizedBox(height: 16),
-                  buildWindHumidityRainRow(weatherData),
+                  Container(
+                      decoration: BoxDecoration(
+                          color: CustomColors.kLightBlue,
+                          borderRadius: BorderRadiusDirectional.circular(18)),
+                      child: buildWindHumidityRainRow(weatherData)),
                   const SizedBox(
                     height: 16,
                   ),
@@ -99,7 +103,7 @@ class WeatherScreen extends StatelessWidget {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.2,
         decoration: BoxDecoration(
-            color: CustomColors.kMorGibi,
+            color: CustomColors.kLightBlue,
             borderRadius: BorderRadius.circular(16)),
         child: Center(
             child: SingleChildScrollView(
@@ -129,7 +133,7 @@ class WeatherScreen extends StatelessWidget {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.2,
         decoration: BoxDecoration(
-            color: CustomColors.kMorGibi,
+            color: CustomColors.kLightBlue,
             borderRadius: BorderRadius.circular(16)),
         child: Center(
           child: SingleChildScrollView(
@@ -160,7 +164,7 @@ class WeatherScreen extends StatelessWidget {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.2,
         decoration: BoxDecoration(
-            color: CustomColors.kMorGibi,
+            color: CustomColors.kLightBlue,
             borderRadius: BorderRadius.circular(16)),
         child: Center(
           child: SingleChildScrollView(
@@ -173,7 +177,7 @@ class WeatherScreen extends StatelessWidget {
                 const SizedBox(height: 8),
                 Image.asset(
                   WeatherForecast.getWeatherImageForecast(
-                      weatherData.weatherDescription2),
+                      weatherData.weatherDescription1),
                 ),
                 const SizedBox(height: 8),
                 Text(weatherData.getFormattedDayName(2), style: kSmallText),
@@ -191,7 +195,7 @@ class WeatherScreen extends StatelessWidget {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.2,
         decoration: BoxDecoration(
-            color: CustomColors.kMorGibi,
+            color: CustomColors.kLightBlue,
             borderRadius: BorderRadius.circular(16)),
         child: Center(
           child: SingleChildScrollView(
@@ -276,25 +280,34 @@ class WeatherScreen extends StatelessWidget {
 
   ElevatedButton buildUpdateButton(WeatherProvider weatherData) {
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.black,
-          side: const BorderSide(width: 1, color: Colors.white),
-          backgroundColor: CustomColors.kBlueWeatherBG,
-          fixedSize: const Size(130, 40),
-          shape: const StadiumBorder(),
-          padding: const EdgeInsets.symmetric(horizontal: 16)),
-      onPressed: () async {
-        await weatherData.getCurrentLocation();
-        await weatherData.getWeatherData(
-          weatherData.latitude,
-          weatherData.longitude,
-        );
-      },
-      child: Text(
-        'Update',
-        style: kMediumText,
-      ),
-    );
+        style: ElevatedButton.styleFrom(
+            maximumSize: const Size(200, 150),
+            minimumSize: const Size(150, 50),
+            foregroundColor: Colors.black,
+            side: const BorderSide(width: 1, color: Colors.white),
+            backgroundColor: CustomColors.kGrimsi,
+            fixedSize: const Size(130, 40),
+            shape: const StadiumBorder(),
+            padding: const EdgeInsets.symmetric(horizontal: 16)),
+        onPressed: () async {
+          await weatherData.getCurrentLocation();
+          await weatherData.getWeatherData(
+            weatherData.latitude,
+            weatherData.longitude,
+          );
+        },
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                'Refresh',
+                style: kMediumText,
+              ),
+            ),
+            const SizedBox(width: 8),
+            const Icon(Icons.refresh)
+          ],
+        ));
   }
 
   Row buildLocationCityRow(WeatherProvider weatherData) {

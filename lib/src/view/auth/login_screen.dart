@@ -1,11 +1,11 @@
-import 'package:f6_bootcamp/src/constants/default_padding.dart';
-import 'package:f6_bootcamp/src/constants/text_style.dart';
-import 'package:f6_bootcamp/src/service/auth/sign_in_with_google.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/auth_components/auth_screen_button.dart';
 import '../../constants/auth_components/auth_textfield.dart';
+import '../../constants/default_padding.dart';
+import '../../constants/text_style.dart';
 import '../../service/auth/auth_provider.dart';
+import '../../service/auth/sign_in_with_google.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({
@@ -71,15 +71,12 @@ class LoginScreen extends StatelessWidget {
                     onTap: () {
                       authProvider.signUserIn(
                           emailController.text, passwordController.text);
+                      //   Navigator.pushNamed(context, '/home');
                     },
                   ),
 
                   const SizedBox(height: 26),
-                  IconButton(
-                      onPressed: () {
-                        print(authProvider.token);
-                      },
-                      icon: Icon(Icons.add)),
+
                   // or continue with
                   buildOrContinueWithDivider(),
 

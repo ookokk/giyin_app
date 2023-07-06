@@ -1,4 +1,4 @@
-import 'package:f6_bootcamp/src/view/auth/auth_screen.dart';
+import 'package:Giyin/src/view/onboarding/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         routes: routes,
         debugShowCheckedModeBanner: false,
-        home: AuthScreen(),
+        home: const OnboardingScreen(),
       ),
     );
   }

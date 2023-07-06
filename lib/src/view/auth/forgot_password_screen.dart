@@ -1,9 +1,9 @@
-import 'package:f6_bootcamp/src/constants/auth_components/auth_screen_button.dart';
-import 'package:f6_bootcamp/src/constants/auth_components/auth_textfield.dart';
-import 'package:f6_bootcamp/src/constants/default_padding.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../../constants/auth_components/auth_screen_button.dart';
+import '../../constants/auth_components/auth_textfield.dart';
+import '../../constants/default_padding.dart';
 import '../../constants/text_style.dart';
 
 class ForgotPasswordScreen extends StatelessWidget {

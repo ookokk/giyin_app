@@ -10,45 +10,54 @@ import '../../../models/wardrobe/combination/combination.dart';
 
 class ImageUploadProvider extends ChangeNotifier {
   final Reference _storageReference = FirebaseStorage.instance.ref();
-  List<String> clothes = [];
 
+  List<String> clothes = [];
   bool loading = false;
   File? selectedImage;
-  String? imageUrl; // Store the image URL here
-
+  String? imageUrl;
   Combination providerCombination = Combination();
 
-  Future<void> getUserClothes() async {
+  Future<List<Combination>> getCombinationsFromFirebase() async {
+    final user = FirebaseAuth.instance.currentUser;
+    final String userId = user!.uid;
+    List<Combination> combinations = [];
+
     try {
-      final user = FirebaseAuth.instance.currentUser;
-      final String userId = user!.uid;
+      QuerySnapshot<Map<String, dynamic>> querySnapshot =
+          await FirebaseFirestore.instance
+              .collection('users')
+              .doc(userId)
+              .collection('combinations')
+              .get();
 
-      final ListResult result =
-          await _storageReference.child('users/$userId').listAll();
+      querySnapshot.docs.forEach((doc) {
+        Map<String, dynamic> data = doc.data();
+        Combination combination = Combination(
+          dateToWear: data['dateToWear'] != null
+              ? (data['dateToWear'] as Timestamp).toDate()
+              : null,
+          id: doc.id,
+          selectedClothedUrls: List<String>.from(data['selectedClothes']),
+          createdDate: data['createdDate'] != null
+              ? (data['createdDate'] as Timestamp).toDate()
+              : null,
+        );
 
-      clothes.clear();
-      for (final item in result.items) {
-        final String downloadUrl = await item.getDownloadURL();
-        clothes.add(downloadUrl);
-      }
+        combinations.add(combination);
+      });
 
-      // Set the image URL to the first item in the clothes list, if available
-      if (clothes.isNotEmpty) {
-        imageUrl = clothes.first;
-      } else {
-        imageUrl = null;
-      }
-    } catch (e) {
-      print('Error fetching user clothes from Firebase Storage: $e');
-      clothes.clear();
-      imageUrl = null;
-    } finally {
-      loading = false;
-      notifyListeners();
+      print('Combinations retrieved successfully.');
+    } catch (error) {
+      print('An error occurred while retrieving the combinations: $error');
     }
+
+    return combinations;
   }
 
   Future<void> uploadCombinationToFirebase(Combination newCombination) async {
+    final user = FirebaseAuth.instance.currentUser;
+    final String userId = user!.uid;
+
     final combineData = {
       'dateToWear': newCombination.dateToWear,
       'id': newCombination.id,
@@ -57,12 +66,14 @@ class ImageUploadProvider extends ChangeNotifier {
     };
 
     await FirebaseFirestore.instance
+        .collection('users')
+        .doc(userId)
         .collection('combinations')
         .add(combineData)
         .then((docRef) {
-      print('Kombin kaydedildi. ID: ${docRef.id}');
+      print('Combination saved. ID: ${docRef.id}');
     }).catchError((error) {
-      print('Kombin kaydedilirken bir hata oluştu: $error');
+      print('An error occurred while saving the combination: $error');
     });
   }
 
@@ -108,5 +119,35 @@ class ImageUploadProvider extends ChangeNotifier {
       throw Exception(error);
     }
     notifyListeners();
+  }
+
+  Future<void> getUserClothes() async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      final String userId = user!.uid;
+
+      final ListResult result =
+          await _storageReference.child('users/$userId').listAll();
+
+      clothes.clear();
+      for (final item in result.items) {
+        final String downloadUrl = await item.getDownloadURL();
+        clothes.add(downloadUrl);
+      }
+
+      // Set the image URL to the first item in the clothes list, if available
+      if (clothes.isNotEmpty) {
+        imageUrl = clothes.first;
+      } else {
+        imageUrl = null;
+      }
+    } catch (e) {
+      print('Error fetching user clothes from Firebase Storage: $e');
+      clothes.clear();
+      imageUrl = null;
+    } finally {
+      loading = false;
+      notifyListeners();
+    }
   }
 }

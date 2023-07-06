@@ -1,5 +1,6 @@
-import 'package:f6_bootcamp/src/constants/text_style.dart';
 import 'package:flutter/material.dart';
+
+import '../text_style.dart';
 
 class AuthTextField extends StatelessWidget {
   final TextEditingController controller;

@@ -1,6 +1,8 @@
-import 'package:f6_bootcamp/src/constants/color.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
+
+import '../constants/color.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   final Function(int) onItemSelected;
@@ -19,9 +21,9 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return SnakeNavigationBar.color(
-      backgroundColor: Colors.grey,
+      backgroundColor: CustomColors.kMaviAcik,
       selectedItemColor: Colors.white,
-      unselectedItemColor: CustomColors.kBeige,
+      unselectedItemColor: Colors.white,
       snakeShape: SnakeShape.rectangle,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
@@ -37,17 +39,20 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       },
       items: [
         const BottomNavigationBarItem(
-            icon: Icon(Icons.house, size: 46, color: Colors.black),
+            icon: Icon(Icons.house, size: 46, color: Colors.white),
             label: 'Home'),
         BottomNavigationBarItem(
-            icon: Image.asset("assets/icons/plus.png", width: 45),
+            icon: Image.asset("assets/icons/clothes.png", width: 45),
             label: 'Add Clothe'),
         BottomNavigationBarItem(
-            icon: Image.asset("assets/icons/weather.png", width: 45),
+            icon: Image.asset("assets/images/sunny.png", width: 45),
             label: 'Weather'),
-        BottomNavigationBarItem(
-            icon: Image.asset("assets/icons/color_break.png", width: 55),
-            label: 'Create Combination'),
+        const BottomNavigationBarItem(
+            icon: Icon(
+              CupertinoIcons.calendar,
+              size: 40,
+            ),
+            label: 'Calendar'),
       ],
     );
   }

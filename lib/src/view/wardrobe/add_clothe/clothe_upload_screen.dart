@@ -1,23 +1,23 @@
 // ignore_for_file: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member, must_be_immutable
 
 import 'dart:io';
-import 'package:f6_bootcamp/src/constants/color.dart';
-import 'package:f6_bootcamp/src/models/wardrobe/clothes/my_clothe1.dart';
-import 'package:f6_bootcamp/src/models/wardrobe/clothes/clothe_list.dart';
-import 'package:f6_bootcamp/src/constants/auth_components/auth_textfield.dart';
 
-import 'package:f6_bootcamp/src/constants/default_padding.dart';
-import 'package:f6_bootcamp/src/constants/text_style.dart';
-import 'package:f6_bootcamp/src/constants/wardrobe/upload_photo_button.dart';
-import 'package:f6_bootcamp/src/service/wardrobe/clothes_provider.dart';
-import 'package:f6_bootcamp/src/widgets/wardrobe/string_dropdown_button.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:multi_select_flutter/chip_field/multi_select_chip_field.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 import 'package:provider/provider.dart';
-import 'package:f6_bootcamp/src/service/wardrobe/add_clothe/image_upload_provider.dart';
+import '../../../constants/auth_components/auth_textfield.dart';
+import '../../../constants/color.dart';
+import '../../../constants/default_padding.dart';
+import '../../../constants/text_style.dart';
+import '../../../constants/wardrobe/upload_photo_button.dart';
+import '../../../models/wardrobe/clothes/clothe_list.dart';
 import '../../../models/wardrobe/clothes/clothes.dart';
+import '../../../models/wardrobe/clothes/my_clothe1.dart';
+import '../../../service/wardrobe/add_clothe/image_upload_provider.dart';
+import '../../../service/wardrobe/clothes_provider.dart';
+import '../../../widgets/wardrobe/string_dropdown_button.dart';
 
 class ClotheUploadScreen extends StatelessWidget {
   ClotheUploadScreen({Key? key, this.screenClothe, this.userUid})
@@ -108,7 +108,7 @@ class ClotheUploadScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Expanded(
-                                  child: StringDropdownButton(
+                                  child: stringDropdownButton(
                                       context,
                                       selectedSizeValue,
                                       ClotheList().sizeOptions,
@@ -131,7 +131,7 @@ class ClotheUploadScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Expanded(
-                                  child: StringDropdownButton(
+                                  child: stringDropdownButton(
                                       context,
                                       selectedMaterialValue,
                                       ClotheList().material,
@@ -153,7 +153,7 @@ class ClotheUploadScreen extends StatelessWidget {
                           child: Column(
                             children: [
                               Expanded(
-                                  child: StringDropdownButton(
+                                  child: stringDropdownButton(
                                       context,
                                       selectedDegreeOfLoveValue,
                                       ClotheList().degreeOfLove,
@@ -176,7 +176,7 @@ class ClotheUploadScreen extends StatelessWidget {
                             child: Column(
                               children: [
                                 Expanded(
-                                    child: StringDropdownButton(
+                                    child: stringDropdownButton(
                                         context,
                                         selectedCategoryValue,
                                         ClotheList().category,
@@ -197,7 +197,7 @@ class ClotheUploadScreen extends StatelessWidget {
                             child: Column(
                               children: [
                                 Expanded(
-                                    child: StringDropdownButton(
+                                    child: stringDropdownButton(
                                         context,
                                         selectedColorValue,
                                         ClotheList().color,

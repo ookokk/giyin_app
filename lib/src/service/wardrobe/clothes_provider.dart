@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:f6_bootcamp/src/models/wardrobe/clothes/my_clothe1.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/wardrobe/clothes/clothes.dart';
+import '../../models/wardrobe/clothes/my_clothe1.dart';
 
 class ClothesProvider with ChangeNotifier {
   final FirebaseAuth _auth = FirebaseAuth.instance;
