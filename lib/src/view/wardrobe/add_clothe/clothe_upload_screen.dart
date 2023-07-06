@@ -235,12 +235,33 @@ class ClotheUploadScreen extends StatelessWidget {
                               File? image = imageUploadProvider.selectedImage;
                               if (image != null) {
                                 imageUploadProvider.uploadImageToStorage(image);
-                              } else {}
+                              }
                               myClothe1!.setClotheID();
                               myClothe1!.setName(clotheNameController.text);
                               myClothe1!.setNotes(clotheNoteController.text);
                               clothesProvider
                                   .addClotheToFirebase(screenClothe!);
+                              showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
+                                        title: Text(
+                                          'Success',
+                                          style: kMediumText,
+                                        ),
+                                        content: Text(
+                                          'Clothe saved successfully.',
+                                          style: kSmallText,
+                                        ),
+                                        actions: [
+                                          TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(
+                                                  context); // Close the dialog
+                                            },
+                                            child: const Text('OK'),
+                                          ),
+                                        ],
+                                      ));
                             },
                             child: Row(children: [
                               Expanded(

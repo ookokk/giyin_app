@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../constants/color.dart';
 import '../../models/wardrobe/clothes/my_clothe1.dart';
+import '../../service/auth/auth_provider.dart';
 import '../../widgets/custom_botom_navigation_bar.dart';
 import '../wardrobe/add_clothe/clothe_upload_screen.dart';
 import '../weather/weather_screen.dart';
@@ -21,7 +22,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
-
+  final AuthProvider authProvider = AuthProvider();
   final List<Widget> _pages = [
     Container(
         child: Center(
@@ -47,15 +48,14 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          authProvider.signUserOut();
+        },
+      ),
       backgroundColor: CustomColors.kKoyuBeyazBG,
       appBar: AppBar(
         backgroundColor: CustomColors.kMaviAcik,
-        actions: [
-          IconButton(
-            onPressed: widget.logOut,
-            icon: const Icon(Icons.logout),
-          ),
-        ],
         leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {

@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "1069668305439-fov5nl6f6p71qdmcid97rqug3ol0522g.apps.googleusercontent.com",
+          "client_id": "1069668305439-ruuefbrdp45m94m71n2l406pgm8bu58e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.f6_bootcamp",
+            "certificate_hash": "9a47fc7bd678075e8f1a8f662d6229d12e66b957"
+          }
+        },
+        {
+          "client_id": "1069668305439-3g0fl8vrfu2noh4u70le6tmsodonfhfk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +35,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1069668305439-fov5nl6f6p71qdmcid97rqug3ol0522g.apps.googleusercontent.com",
+              "client_id": "1069668305439-3g0fl8vrfu2noh4u70le6tmsodonfhfk.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1069668305439-vu28vp7kpg7arpd4arp9odrf7tbu0qso.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.f6Bootcamp"
+              }
             }
           ]
         }

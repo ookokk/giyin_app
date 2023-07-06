@@ -47,84 +47,86 @@ class MyCombinationsScreen extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        GridView.builder(
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 10,
-                            mainAxisSpacing: 10,
-                          ),
-                          itemCount: combinations.length,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemBuilder: (context, index) {
-                            Combination combination = combinations[index];
-
-                            return GestureDetector(
-                              onTap: () {
-                                showDialog(
-                                  context: context,
-                                  builder: (context) => AlertDialog(
-                                    title: Text(
-                                      'Selected Clothes',
-                                      style: kMediumText,
-                                    ),
-                                    content: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: combination.selectedClothedUrls!
-                                          .map((url) => Image.network(
-                                                url,
-                                                width: 100,
-                                                height: 100,
-                                                fit: BoxFit.cover,
-                                              ))
-                                          .toList(),
-                                    ),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(
-                                              context); // Close the dialog
-                                        },
-                                        child: Text('OK', style: kMediumText),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.grey[200],
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: Column(
-                                  children: [
-                                    // Display combination image or placeholder
-                                    // Replace Image.network with your own implementation
-                                    Image.network(
-                                      combination.selectedClothedUrls![0],
-                                      width: 100,
-                                      height: 100,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    Text(
-                                      DateFormat('MMMM dd, yyyy').format(
-                                        combination.dateToWear!,
-                                      ),
-                                      style: kMediumText,
-                                    ),
-                                    // Display other combination details as desired
-                                  ],
-                                ),
-                              ),
-                            );
-                          },
-                        ),
+                        buildMyCombinationsGridViewBuilder(combinations),
                       ],
                     ),
                   ),
                 );
               },
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  GridView buildMyCombinationsGridViewBuilder(List<Combination> combinations) {
+    return GridView.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+      ),
+      itemCount: combinations.length,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemBuilder: (context, index) {
+        Combination combination = combinations[index];
+
+        return GestureDetector(
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                title: Text(
+                  'Selected Clothes',
+                  style: kMediumText,
+                ),
+                content: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: combination.selectedClothedUrls!
+                      .map((url) => Image.network(
+                            url,
+                            width: 100,
+                            height: 100,
+                            fit: BoxFit.cover,
+                          ))
+                      .toList(),
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context); // Close the dialog
+                    },
+                    child: Text('OK', style: kMediumText),
+                  ),
+                ],
+              ),
+            );
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Column(
+              children: [
+                // Display combination image or placeholder
+                // Replace Image.network with your own implementation
+                Image.network(
+                  combination.selectedClothedUrls![0],
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.cover,
+                ),
+                Text(
+                  DateFormat('MMMM dd, yyyy').format(
+                    combination.dateToWear!,
+                  ),
+                  style: kMediumText,
+                ),
+                // Display other combination details as desired
+              ],
             ),
           ),
         );

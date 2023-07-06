@@ -1,5 +1,6 @@
 // ignore_for_file: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
 
+import 'package:Giyin/src/constants/default_padding.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -62,30 +63,42 @@ class _CreateCombinationScreenState extends State<CreateCombinationScreen> {
 
         return SafeArea(
           child: Scaffold(
+            appBar: AppBar(
+              backgroundColor: CustomColors.kMaviAcik,
+              leading: IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
             backgroundColor: CustomColors.kKoyuBeyazBG,
             body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const SizedBox(
-                        width: 8,
-                      ),
-                      buildSelectDateButton(context, myDate),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      buildCreateCombinationButton(
-                          imageUploadProvider, context),
-                    ],
-                  ),
-                  buildUserClothesGridViewBuilder(
-                      imageUploadProvider, toggleSelection, isSelected),
-                ],
+              child: Padding(
+                padding: kDefaultPadding,
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        buildSelectDateButton(context, myDate),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        buildCreateCombinationButton(
+                            imageUploadProvider, context),
+                      ],
+                    ),
+                    buildUserClothesGridViewBuilder(
+                        imageUploadProvider, toggleSelection, isSelected),
+                  ],
+                ),
               ),
             ),
           ),
@@ -151,17 +164,23 @@ class _CreateCombinationScreenState extends State<CreateCombinationScreen> {
     BuildContext context,
   ) {
     return ElevatedButton(
-      onPressed: () async {
+      onPressed: () {
         myCombination1.setId(DateTime.now().toString());
         myCombination1.setCreatedDate(DateTime.now());
 
-        await imageUploadProvider.uploadCombinationToFirebase(myCombination1);
+        imageUploadProvider.uploadCombinationToFirebase(myCombination1);
 
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: const Text('Success'),
-            content: const Text('Combination saved successfully.'),
+            title: Text(
+              'Success',
+              style: kMediumText,
+            ),
+            content: Text(
+              'Combination saved successfully.',
+              style: kSmallText,
+            ),
             actions: [
               TextButton(
                 onPressed: () {

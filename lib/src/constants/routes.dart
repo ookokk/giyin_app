@@ -24,7 +24,7 @@ final Map<String, WidgetBuilder> routes = {
   '/home': (context) => const HomeScreen(),
   //GARDROP
   '/gardrop': (context) => const WardrobeScreen(),
-  '/combination': (context) => const MyCombinationsScreen(),
+  '/combinations': (context) => const MyCombinationsScreen(),
   //CREATE CLOTHE
   '/clotheUpload': (context) => ClotheUploadScreen(screenClothe: myClothe1),
   '/createCombination': (context) => const CreateCombinationScreen(),

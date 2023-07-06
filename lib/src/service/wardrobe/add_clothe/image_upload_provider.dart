@@ -45,8 +45,6 @@ class ImageUploadProvider extends ChangeNotifier {
 
         combinations.add(combination);
       });
-
-      print('Combinations retrieved successfully.');
     } catch (error) {
       print('An error occurred while retrieving the combinations: $error');
     }
