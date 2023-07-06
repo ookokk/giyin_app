@@ -48,11 +48,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          authProvider.signUserOut();
-        },
-      ),
       backgroundColor: CustomColors.kKoyuBeyazBG,
       appBar: AppBar(
         backgroundColor: CustomColors.kMaviAcik,
