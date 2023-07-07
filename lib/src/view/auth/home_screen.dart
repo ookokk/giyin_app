@@ -47,8 +47,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        /*onPressed: () {
+      /*floatingActionButton: FloatingActionButton(
+        onPressed: () {
           authProvider.signUserOut();
         },
       ),*/
