@@ -15,7 +15,7 @@ import '../view/weather/weather_screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
   //AUTH
-  '/splash': (context) => const OnboardingScreen(),
+  '/onboarding': (context) => const OnboardingScreen(),
   '/login': (context) => LoginScreen(),
   '/register': (context) => RegisterScreen(),
   '/forgotPassword': (context) => ForgotPasswordScreen(),

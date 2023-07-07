@@ -25,8 +25,7 @@ class Assets {
   static const String images3 = 'assets/images/3.png';
   static const String imagesAddClothe = 'assets/images/add_clothe.png';
   static const String imagesCloudy = 'assets/images/cloudy.png';
-  static const String imagesDefaultWeather =
-      'assets/images/default_weather.png';
+  static const String imagesDefaultWeather = 'assets/images/hot.png';
   static const String imagesHomeLogo = 'assets/images/home_logo.png';
   static const String imagesHumidity = 'assets/images/humidity.png';
   static const String imagesOnboarding1 = 'assets/images/onboarding1.png';

@@ -138,7 +138,7 @@ class WeatherProvider with ChangeNotifier {
     } else if (weatherDescription.toLowerCase().contains('wind')) {
       return 'assets/images/windy.png';
     } else {
-      return 'assets/images/default_weather.png';
+      return 'assets/images/hot.png';
     }
   }
 }

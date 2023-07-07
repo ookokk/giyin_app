@@ -177,7 +177,7 @@ class WeatherScreen extends StatelessWidget {
                 const SizedBox(height: 8),
                 Image.asset(
                   WeatherForecast.getWeatherImageForecast(
-                      weatherData.weatherDescription1),
+                      weatherData.weatherDescription2),
                 ),
                 const SizedBox(height: 8),
                 Text(weatherData.getFormattedDayName(2), style: kSmallText),

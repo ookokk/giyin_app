@@ -66,7 +66,7 @@ class WeatherForecast {
     } else if (description.contains('wind')) {
       return 'assets/images/windy.png';
     } else {
-      return 'assets/images/default_weather.png';
+      return 'assets/images/hot.png';
     }
   }
 }
