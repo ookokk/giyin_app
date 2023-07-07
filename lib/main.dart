@@ -1,3 +1,4 @@
+import 'package:Giyin/src/models/onboarding/onboarding_provider.dart';
 import 'package:Giyin/src/view/onboarding/onboarding_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => WeatherProvider()),
         ChangeNotifierProvider(create: (context) => CalendarProvider()),
         ChangeNotifierProvider(create: (context) => ImageUploadProvider()),
+        ChangeNotifierProvider(create: (context) => OnboardingProvider()),
 
         //kullanıcı hatalı giriş yapma durumlarını kontrol et
       ],

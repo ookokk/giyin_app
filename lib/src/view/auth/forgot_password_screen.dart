@@ -51,6 +51,10 @@ class ForgotPasswordScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Image.asset(
+                  "assets/icons/wrong-password.png",
+                  height: MediaQuery.of(context).size.height * 0.2,
+                ),
                 Text("Forgot\n Password?", style: kXLargeText),
                 const SizedBox(height: 26),
                 Text(

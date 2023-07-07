@@ -87,10 +87,9 @@ class RegisterScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 50),
 
-                // logo
-                const Icon(
-                  Icons.lock,
-                  size: 100,
+                Image.asset(
+                  "assets/icons/giyin_logo.png",
+                  height: MediaQuery.of(context).size.height * 0.18,
                 ),
 
                 const SizedBox(height: 50),

@@ -107,15 +107,14 @@ class LoginScreen extends StatelessWidget {
           style: kSmallText,
         ),
         const SizedBox(width: 4),
-        Container(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/register');
-            },
-            child: Text(
-              'Register now',
-              style: TextStyle(fontSize: 20),
-            ),
+        GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/register');
+          },
+          child: Text(
+            'Register now',
+            style: TextStyle(
+                color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 20),
           ),
         ),
       ],
