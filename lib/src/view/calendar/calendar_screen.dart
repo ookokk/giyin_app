@@ -7,7 +7,7 @@ import 'package:table_calendar/table_calendar.dart';
 import '../../service/calendar/calendar_provider.dart';
 
 class CalendarScreen extends StatelessWidget {
-  CalendarScreen({Key? key}) : super(key: key);
+  const CalendarScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,6 @@ class CalendarScreen extends StatelessWidget {
                     ),
                     onPressed: () {
                       Navigator.pushNamed(context, '/combinations');
-                      print("kombinasyoıne");
                     },
                   ),
                 ],

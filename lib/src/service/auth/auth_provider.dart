@@ -17,16 +17,12 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<String?> signUserIn(String email, String password) async {
-    try {
-      UserCredential userCredential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+    UserCredential userCredential = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: password);
 
-      String firebaseToken = await userCredential.user?.getIdToken() ?? '';
+    String firebaseToken = await userCredential.user?.getIdToken() ?? '';
 
-      _token = firebaseToken;
-    } catch (e) {
-      print('Hatalı giriş: $e');
-    }
+    _token = firebaseToken;
     return null;
   }
 }

@@ -111,7 +111,7 @@ class LoginScreen extends StatelessWidget {
           onTap: () {
             Navigator.pushNamed(context, '/register');
           },
-          child: Text(
+          child: const Text(
             'Register now',
             style: TextStyle(
                 color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 20),

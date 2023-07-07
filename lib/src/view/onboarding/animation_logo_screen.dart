@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, use_full_hex_values_for_flutter_colors
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -24,7 +26,7 @@ class _AnimationLogoScreenState extends State<AnimationLogoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0XFFD0E2954),
+      backgroundColor: const Color(0xffd0e2954),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

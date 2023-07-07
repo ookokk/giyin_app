@@ -90,13 +90,13 @@ class ClotheUploadScreen extends StatelessWidget {
                                   .toList() ??
                               [],
                           onTap: (List<String?> values) {
-                            values.forEach((value) {
+                            for (var value in values) {
                               if (value != null) {
                                 selectedSeasonsList.add(value);
                                 myClothe1!.setSeason(value);
                                 clothesProvider.notifyListeners();
                               }
-                            });
+                            }
                           },
                         ),
                         Container(

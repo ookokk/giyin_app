@@ -22,32 +22,28 @@ class ImageUploadProvider extends ChangeNotifier {
     final String userId = user!.uid;
     List<Combination> combinations = [];
 
-    try {
-      QuerySnapshot<Map<String, dynamic>> querySnapshot =
-          await FirebaseFirestore.instance
-              .collection('users')
-              .doc(userId)
-              .collection('combinations')
-              .get();
+    QuerySnapshot<Map<String, dynamic>> querySnapshot = await FirebaseFirestore
+        .instance
+        .collection('users')
+        .doc(userId)
+        .collection('combinations')
+        .get();
 
-      querySnapshot.docs.forEach((doc) {
-        Map<String, dynamic> data = doc.data();
-        Combination combination = Combination(
-          dateToWear: data['dateToWear'] != null
-              ? (data['dateToWear'] as Timestamp).toDate()
-              : null,
-          id: doc.id,
-          selectedClothedUrls: List<String>.from(data['selectedClothes']),
-          createdDate: data['createdDate'] != null
-              ? (data['createdDate'] as Timestamp).toDate()
-              : null,
-        );
+    querySnapshot.docs.forEach((doc) {
+      Map<String, dynamic> data = doc.data();
+      Combination combination = Combination(
+        dateToWear: data['dateToWear'] != null
+            ? (data['dateToWear'] as Timestamp).toDate()
+            : null,
+        id: doc.id,
+        selectedClothedUrls: List<String>.from(data['selectedClothes']),
+        createdDate: data['createdDate'] != null
+            ? (data['createdDate'] as Timestamp).toDate()
+            : null,
+      );
 
-        combinations.add(combination);
-      });
-    } catch (error) {
-      print('An error occurred while retrieving the combinations: $error');
-    }
+      combinations.add(combination);
+    });
 
     return combinations;
   }
@@ -68,11 +64,8 @@ class ImageUploadProvider extends ChangeNotifier {
         .doc(userId)
         .collection('combinations')
         .add(combineData)
-        .then((docRef) {
-      print('Combination saved. ID: ${docRef.id}');
-    }).catchError((error) {
-      print('An error occurred while saving the combination: $error');
-    });
+        .then((docRef) {})
+        .catchError((error) {});
   }
 
   Future<String> uploadImageToStorage(File image) async {
@@ -87,7 +80,6 @@ class ImageUploadProvider extends ChangeNotifier {
       String downloadUrl = await storageSnapshot.ref.getDownloadURL();
       return downloadUrl;
     } catch (error) {
-      print(error);
       throw Exception(error);
     } finally {
       notifyListeners();
@@ -100,9 +92,7 @@ class ImageUploadProvider extends ChangeNotifier {
     );
     if (crop != null) {
       // Kırpılmış resmi kullanarak istediğiniz işlemleri gerçekleştirin
-    } else {
-      print('Image cropping cancelled!');
-    }
+    } else {}
     notifyListeners();
   }
 
@@ -113,7 +103,6 @@ class ImageUploadProvider extends ChangeNotifier {
         selectedImage = File(pickedImage.path);
       }
     } catch (error) {
-      print(error);
       throw Exception(error);
     }
     notifyListeners();
@@ -140,7 +129,6 @@ class ImageUploadProvider extends ChangeNotifier {
         imageUrl = null;
       }
     } catch (e) {
-      print('Error fetching user clothes from Firebase Storage: $e');
       clothes.clear();
       imageUrl = null;
     } finally {

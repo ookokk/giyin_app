@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:Giyin/src/view/calendar/calendar_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
     ),
     ClotheUploadScreen(screenClothe: myClothe1),
     const WeatherScreen(),
-    CalendarScreen(),
+    const CalendarScreen(),
   ];
 
   void onItemSelected(int index) {
@@ -52,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
           authProvider.signUserOut();
         },
       ),*/
-      backgroundColor: CustomColors.kKoyuBeyazBG,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: CustomColors.kMaviAcik,
         leading: IconButton(

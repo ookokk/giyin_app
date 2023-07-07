@@ -40,17 +40,6 @@ class _CreateCombinationScreenState extends State<CreateCombinationScreen> {
         }
 
         DateTime myDate = DateTime.now();
-        Future<void> selectDate(BuildContext context) async {
-          final DateTime? picked = await showDatePicker(
-            context: context,
-            initialDate: DateTime.now(),
-            firstDate: DateTime(2022),
-            lastDate: DateTime(2023),
-          );
-          if (picked != null) {
-            dateController.text = picked.toString();
-          }
-        }
 
         void toggleSelection(String imageUrl) {
           if (myCombination1.selectedClothedUrls!.contains(imageUrl)) {
@@ -109,8 +98,8 @@ class _CreateCombinationScreenState extends State<CreateCombinationScreen> {
 
   GridView buildUserClothesGridViewBuilder(
       ImageUploadProvider imageUploadProvider,
-      void toggleSelection(String imageUrl),
-      bool isSelected(String imageUrl)) {
+      void Function(String imageUrl) toggleSelection,
+      bool Function(String imageUrl) isSelected) {
     return GridView.builder(
       shrinkWrap: true,
       physics: const AlwaysScrollableScrollPhysics(),

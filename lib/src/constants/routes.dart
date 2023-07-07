@@ -28,6 +28,6 @@ final Map<String, WidgetBuilder> routes = {
   //CREATE CLOTHE
   '/clotheUpload': (context) => ClotheUploadScreen(screenClothe: myClothe1),
   '/createCombination': (context) => const CreateCombinationScreen(),
-  '/calendar': (context) => CalendarScreen(),
+  '/calendar': (context) => const CalendarScreen(),
   '/weather': (context) => const WeatherScreen(),
 };

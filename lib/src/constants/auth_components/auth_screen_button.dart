@@ -6,7 +6,8 @@ class AuthScreenButton extends StatelessWidget {
   final Function()? onTap;
   final String buttonText;
 
-  AuthScreenButton({super.key, required this.buttonText, required this.onTap});
+  const AuthScreenButton(
+      {super.key, required this.buttonText, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
