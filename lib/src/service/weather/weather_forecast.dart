@@ -1,7 +1,7 @@
 class WeatherForecast {
   int dt;
   double temperature;
-  double feelslike;
+  double feelsLike;
   String weatherDescription;
   double windSpeed;
   double rainAmount;
@@ -18,7 +18,7 @@ class WeatherForecast {
       temperature: (json['main'] != null && json['main']['temp'] != null)
           ? (json['main']['temp'] as num).toDouble()
           : 0.0,
-      feelslike: (json['main'] != null && json['main']['feels_like'] != null)
+      feelsLike: (json['main'] != null && json['main']['feels_like'] != null)
           ? (json['main']['feels_like'] as num).toDouble()
           : 0.0,
       weatherDescription: capitalize(json['weather'][0]['description']),
@@ -38,7 +38,7 @@ class WeatherForecast {
   WeatherForecast({
     required this.dt,
     required this.temperature,
-    required this.feelslike,
+    required this.feelsLike,
     required this.weatherDescription,
     required this.windSpeed,
     required this.rainAmount,

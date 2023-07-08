@@ -1,13 +1,11 @@
 // ignore_for_file: library_private_types_in_public_api
-
-import 'package:Giyin/src/view/calendar/calendar_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import '../../constants/color.dart';
 import '../../models/wardrobe/clothes/my_clothe1.dart';
 import '../../service/auth/auth_provider.dart';
 import '../../widgets/custom_botom_navigation_bar.dart';
+import '../calendar/calendar_screen.dart';
 import '../wardrobe/add_clothe/clothe_upload_screen.dart';
 import '../weather/weather_screen.dart';
 

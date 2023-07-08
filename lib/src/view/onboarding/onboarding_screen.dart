@@ -1,8 +1,8 @@
-import 'package:Giyin/src/constants/default_padding.dart';
-import 'package:Giyin/src/constants/text_style.dart';
-import 'package:Giyin/src/view/onboarding/intro_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../../constants/default_padding.dart';
+import '../../constants/text_style.dart';
+import 'intro_page1.dart';
 import 'intro_page2.dart';
 import 'intro_page3.dart';
 

@@ -5,7 +5,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:image_cropper/image_cropper.dart';
-
 import '../../../models/wardrobe/combination/combination.dart';
 
 class ImageUploadProvider extends ChangeNotifier {
@@ -29,7 +28,7 @@ class ImageUploadProvider extends ChangeNotifier {
         .collection('combinations')
         .get();
 
-    querySnapshot.docs.forEach((doc) {
+    for (var doc in querySnapshot.docs) {
       Map<String, dynamic> data = doc.data();
       Combination combination = Combination(
         dateToWear: data['dateToWear'] != null
@@ -43,7 +42,7 @@ class ImageUploadProvider extends ChangeNotifier {
       );
 
       combinations.add(combination);
-    });
+    }
 
     return combinations;
   }

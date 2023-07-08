@@ -1,10 +1,8 @@
 // ignore_for_file: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
-
-import 'package:Giyin/src/constants/default_padding.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../../constants/color.dart';
+import '../../../constants/default_padding.dart';
 import '../../../constants/text_style.dart';
 import '../../../models/wardrobe/combination/combination.dart';
 import '../../../models/wardrobe/combination/my_combination1.dart';

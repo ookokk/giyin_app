@@ -14,9 +14,9 @@ class WeatherScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<WeatherProvider>(builder: (context, weatherData, _) {
-      String weatherImage =
-          weatherData.getWeatherImage(weatherData.weatherDescriptionToday);
+    return Consumer<WeatherProvider>(builder: (context, weatherProvider, _) {
+      String weatherImage = weatherProvider
+          .getWeatherImage(weatherProvider.weatherDescriptionToday);
 
       return Scaffold(
         backgroundColor: Colors.white54,
@@ -27,26 +27,26 @@ class WeatherScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  buildLocationCityRow(weatherData),
+                  buildLocationCityRow(weatherProvider),
                   const SizedBox(
                     height: 8,
                   ),
                   const SizedBox(
                     height: 8,
                   ),
-                  buildUpdateButton(weatherData),
+                  buildUpdateButton(weatherProvider),
                   Image.asset(
                     weatherImage,
                     width: MediaQuery.of(context).size.width * 0.35,
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    '${weatherData.temperature.toInt()}°',
+                    '${weatherProvider.temperature.toInt()}°',
                     style: kXXLargeText,
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    weatherData.weatherDescriptionToday,
+                    weatherProvider.weatherDescriptionToday,
                     style: kLargeText,
                   ),
                   const SizedBox(
@@ -69,25 +69,28 @@ class WeatherScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: CustomColors.kLightBlue,
                           borderRadius: BorderRadiusDirectional.circular(18)),
-                      child: buildWindHumidityRainRow(weatherData)),
+                      child: buildWindHumidityRainRow(weatherProvider)),
                   const SizedBox(
                     height: 16,
                   ),
                   Row(
                     children: [
-                      buildNextDayWeatherContainer(context, weatherData),
+                      buildNextDayWeatherContainer(context, weatherProvider),
                       const SizedBox(
                         width: 8,
                       ),
-                      buildNextSecondDayWeatherContainer(context, weatherData),
+                      buildNextSecondDayWeatherContainer(
+                          context, weatherProvider),
                       const SizedBox(
                         width: 8,
                       ),
-                      buildNextThirdDayWeatherContainer(context, weatherData),
+                      buildNextThirdDayWeatherContainer(
+                          context, weatherProvider),
                       const SizedBox(
                         width: 8,
                       ),
-                      buildNextFourthDayWeatherContainer(context, weatherData),
+                      buildNextFourthDayWeatherContainer(
+                          context, weatherProvider),
                     ],
                   )
                 ],

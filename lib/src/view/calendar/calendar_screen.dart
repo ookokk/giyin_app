@@ -1,9 +1,8 @@
-import 'package:Giyin/src/constants/color.dart';
-import 'package:Giyin/src/constants/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
-
+import '../../constants/color.dart';
+import '../../constants/text_style.dart';
 import '../../service/calendar/calendar_provider.dart';
 
 class CalendarScreen extends StatelessWidget {
@@ -36,19 +35,23 @@ class CalendarScreen extends StatelessWidget {
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(70, 50),
-                        maximumSize: const Size(300, 50),
+                        minimumSize: const Size(70, 60),
+                        maximumSize: const Size(300, 60),
                         backgroundColor: CustomColors.kMaviAcik,
                         shape: const StadiumBorder()),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Go To My Combinations',
+                          'My Combinations',
                           style: kMediumBeyazText,
                         ),
                         const SizedBox(width: 16),
-                        const Icon(Icons.curtains_closed)
+                        Expanded(
+                            child: Image.asset(
+                          "assets/icons/closet.png",
+                          height: 50,
+                        ))
                       ],
                     ),
                     onPressed: () {
@@ -63,8 +66,8 @@ class CalendarScreen extends StatelessWidget {
               FloatingActionButtonLocation.centerDocked,
           floatingActionButton: ElevatedButton(
             style: ElevatedButton.styleFrom(
-                minimumSize: const Size(70, 50),
-                maximumSize: const Size(300, 50),
+                minimumSize: const Size(80, 50),
+                maximumSize: const Size(300, 60),
                 backgroundColor: CustomColors.kMaviAcik,
                 shape: const StadiumBorder()),
             child: Row(
@@ -74,8 +77,12 @@ class CalendarScreen extends StatelessWidget {
                   'Create Combination',
                   style: kMediumBeyazText,
                 ),
-                const SizedBox(width: 16),
-                const Icon(Icons.create)
+                const SizedBox(width: 30),
+                Expanded(
+                    child: Image.asset(
+                  "assets/icons/create_combination.png",
+                  height: 60,
+                ))
               ],
             ),
             onPressed: () {

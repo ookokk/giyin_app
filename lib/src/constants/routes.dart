@@ -1,11 +1,11 @@
-import 'package:Giyin/src/view/auth/auth_screen.dart';
-import 'package:Giyin/src/view/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import '../models/wardrobe/clothes/my_clothe1.dart';
+import '../view/auth/auth_screen.dart';
 import '../view/auth/forgot_password_screen.dart';
 import '../view/auth/login_screen.dart';
 import '../view/auth/register_screen.dart';
 import '../view/calendar/calendar_screen.dart';
+import '../view/onboarding/onboarding_screen.dart';
 import '../view/wardrobe/add_clothe/clothe_upload_screen.dart';
 import '../view/wardrobe/combination/create_combination_screen.dart';
 import '../view/wardrobe/wardrobe_screen.dart';
