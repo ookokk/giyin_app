@@ -54,6 +54,13 @@ class ClotheUploadScreen extends StatelessWidget {
             //size
 
             return Scaffold(
+              appBar: AppBar(
+                title: Text(
+                  "Add Clothe",
+                  style: kMediumBeyazText,
+                ),
+                backgroundColor: CustomColors.kMaviAcik,
+              ),
               backgroundColor: CustomColors.kKoyuBeyazBG,
               body: SingleChildScrollView(
                   child: SafeArea(

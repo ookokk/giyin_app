@@ -44,9 +44,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
             icon: Icon(Icons.house, size: 46, color: Colors.white),
             label: 'Home'),
         BottomNavigationBarItem(
-            icon: Image.asset("assets/icons/clothes.png", width: 45),
-            label: 'Add Clothe'),
-        BottomNavigationBarItem(
             icon: Image.asset("assets/images/sunny.png", width: 45),
             label: 'Weather'),
         const BottomNavigationBarItem(

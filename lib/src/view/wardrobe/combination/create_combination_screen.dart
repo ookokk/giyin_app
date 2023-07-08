@@ -51,13 +51,11 @@ class _CreateCombinationScreenState extends State<CreateCombinationScreen> {
         return SafeArea(
           child: Scaffold(
             appBar: AppBar(
-              backgroundColor: CustomColors.kMaviAcik,
-              leading: IconButton(
-                icon: const Icon(Icons.arrow_back),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+              title: Text(
+                "Create Combination",
+                style: kMediumBeyazText,
               ),
+              backgroundColor: CustomColors.kMaviAcik,
             ),
             backgroundColor: CustomColors.kKoyuBeyazBG,
             body: SingleChildScrollView(

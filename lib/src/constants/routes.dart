@@ -9,7 +9,7 @@ import '../view/onboarding/onboarding_screen.dart';
 import '../view/wardrobe/add_clothe/clothe_upload_screen.dart';
 import '../view/wardrobe/combination/create_combination_screen.dart';
 import '../view/wardrobe/wardrobe_screen.dart';
-import '../view/auth/home_screen.dart';
+import '../view/home/home_screen.dart';
 import '../view/wardrobe/combination/my_combinations_screen.dart';
 import '../view/weather/weather_screen.dart';
 

@@ -16,13 +16,11 @@ class MyCombinationsScreen extends StatelessWidget {
       builder: (context, imageUploadProvider, _) {
         return Scaffold(
           appBar: AppBar(
-            backgroundColor: CustomColors.kMaviAcik,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.pop(context);
-              },
+            title: Text(
+              "My Combinations",
+              style: kMediumBeyazText,
             ),
+            backgroundColor: CustomColors.kMaviAcik,
           ),
           body: Padding(
             padding: kDefaultPadding,

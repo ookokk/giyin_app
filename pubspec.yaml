@@ -37,6 +37,7 @@ dependencies:
   image_picker: ^0.8.9
   image_cropper: ^4.0.0
   multi_select_flutter: ^4.1.3
+  #home
   dropdown_button2: ^2.3.4
   flutter_snake_navigationbar: ^0.6.1
   smooth_page_indicator: ^1.1.0
