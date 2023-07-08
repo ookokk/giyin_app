@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Navigator.pop(context);
             }),
       ),
-      body: _pages[_selectedIndex], // Seçilen sayfayı göster
+      body: _pages[_selectedIndex],
       bottomNavigationBar: CustomBottomNavigationBar(
         onItemSelected: onItemSelected,
       ),
