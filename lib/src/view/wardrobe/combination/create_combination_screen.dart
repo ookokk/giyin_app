@@ -98,7 +98,7 @@ class _CreateCombinationScreenState extends State<CreateCombinationScreen> {
       bool Function(String imageUrl) isSelected) {
     return GridView.builder(
       shrinkWrap: true,
-      physics: const AlwaysScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
       ),
