@@ -2,7 +2,7 @@
 
 
     <application
-        android:label="f6_bootcamp"
+        android:label="Giyin"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
