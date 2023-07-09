@@ -19,8 +19,8 @@ import '../../../service/wardrobe/add_clothe/image_upload_provider.dart';
 import '../../../service/wardrobe/clothes_provider.dart';
 import '../../../widgets/wardrobe/string_dropdown_button.dart';
 
-class ClotheUploadScreen extends StatelessWidget {
-  ClotheUploadScreen({Key? key, this.screenClothe, this.userUid})
+class AddClotheScreen extends StatelessWidget {
+  AddClotheScreen({Key? key, this.screenClothe, this.userUid})
       : super(key: key);
 
   String? selectedSizeValue;

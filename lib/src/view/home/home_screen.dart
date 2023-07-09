@@ -1,12 +1,10 @@
 // ignore_for_file: library_private_types_in_public_api
 import 'package:flutter/material.dart';
 import '../../constants/color.dart';
-import '../../models/wardrobe/clothes/my_clothe1.dart';
 import '../../service/auth/auth_provider.dart';
 import '../../widgets/custom_botom_navigation_bar.dart';
 import '../../widgets/home/my_navigation_drawer.dart';
 import '../calendar/calendar_screen.dart';
-import '../wardrobe/add_clothe/clothe_upload_screen.dart';
 import '../weather/weather_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -57,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () {
                   Scaffold.of(context).openDrawer();
                 },
-                icon: Icon(Icons.menu)),
+                icon: const Icon(Icons.menu)),
           )),
       body: _pages[_selectedIndex],
       bottomNavigationBar: CustomBottomNavigationBar(

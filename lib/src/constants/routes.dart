@@ -6,7 +6,7 @@ import '../view/auth/login_screen.dart';
 import '../view/auth/register_screen.dart';
 import '../view/calendar/calendar_screen.dart';
 import '../view/onboarding/onboarding_screen.dart';
-import '../view/wardrobe/add_clothe/clothe_upload_screen.dart';
+import '../view/wardrobe/add_clothe/add_clothe_screen.dart';
 import '../view/wardrobe/combination/create_combination_screen.dart';
 import '../view/wardrobe/wardrobe_screen.dart';
 import '../view/home/home_screen.dart';
@@ -26,7 +26,7 @@ final Map<String, WidgetBuilder> routes = {
   '/gardrop': (context) => const WardrobeScreen(),
   '/combinations': (context) => const MyCombinationsScreen(),
   //CREATE CLOTHE
-  '/clotheUpload': (context) => ClotheUploadScreen(screenClothe: myClothe1),
+  '/addClothe': (context) => AddClotheScreen(screenClothe: myClothe1),
   '/createCombination': (context) => const CreateCombinationScreen(),
   '/calendar': (context) => const CalendarScreen(),
   '/weather': (context) => const WeatherScreen(),
