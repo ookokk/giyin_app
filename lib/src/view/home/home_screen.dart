@@ -42,11 +42,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
         child: Scaffold(
       drawer: MyNavigationDrawer(),
-      /*floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              authProvider.signUserOut();
-            },
-          ),*/
       backgroundColor: Colors.white,
       appBar: AppBar(
           backgroundColor: CustomColors.kMaviAcik,

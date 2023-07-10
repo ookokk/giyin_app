@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 
 import '../../constants/auth_components/auth_screen_button.dart';
@@ -65,13 +67,16 @@ class LoginScreen extends StatelessWidget {
 
                   const SizedBox(height: 25),
 
-                  // sign in button
                   AuthScreenButton(
                     buttonText: "Sign In",
-                    onTap: () {
-                      authProvider.signUserIn(
+                    onTap: () async {
+                      String? error = await authProvider.signUserIn(
                           emailController.text, passwordController.text);
-                      //   Navigator.pushNamed(context, '/home');
+                      if (error != null) {
+                        authProvider.showAlert(context, "Error", error);
+                      } else {
+                        Navigator.pushNamed(context, '/home');
+                      }
                     },
                   ),
 

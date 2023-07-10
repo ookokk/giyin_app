@@ -1,7 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../constants/auth_components/auth_textfield.dart';
 import '../../constants/text_style.dart';
+import '../../service/auth/auth_provider.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({
@@ -12,55 +12,8 @@ class RegisterScreen extends StatelessWidget {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
-  //register user
 
-  void signUp(BuildContext context) async {
-    if (!passwordConfirmed()) {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text('Error'),
-            content: const Text('Passwords do not match.'),
-            actions: [
-              ElevatedButton(
-                child: const Text('OK'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
-      return;
-    }
-
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
-      );
-    } catch (e) {
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text('Error'),
-            content: Text(e.toString()),
-            actions: [
-              ElevatedButton(
-                child: const Text('OK'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
-    }
-  }
+  final AuthProvider authProvider = AuthProvider();
 
   bool passwordConfirmed() {
     return passwordController.text.trim() ==
@@ -127,7 +80,8 @@ class RegisterScreen extends StatelessWidget {
                 // sign in button
                 GestureDetector(
                   onTap: () {
-                    signUp(context);
+                    authProvider.signUp(context, emailController.text.trim(),
+                        passwordController.text.trim(), passwordConfirmed());
                   },
                   child: Container(
                     padding: const EdgeInsets.all(25),

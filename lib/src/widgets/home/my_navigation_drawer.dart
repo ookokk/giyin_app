@@ -63,6 +63,7 @@ class MyNavigationDrawer extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
             authProvider.signUserOut();
+            Navigator.pushReplacementNamed(context, '/auth');
           },
         ),
       ],
