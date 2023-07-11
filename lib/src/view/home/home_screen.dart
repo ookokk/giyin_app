@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 import 'package:flutter/material.dart';
+import 'package:giyin/src/view/home/home_screen_container.dart';
 import '../../constants/color.dart';
 import '../../service/auth/auth_provider.dart';
 import '../../widgets/custom_botom_navigation_bar.dart';
@@ -19,13 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final AuthProvider authProvider = AuthProvider();
   final List<Widget> _pages = [
     Center(
-      child: Column(children: [
-        Expanded(
-          child: Image.asset(
-            "assets/images/home_logo.png",
-          ),
-        )
-      ]),
+      child: HomeScreenContainer(),
     ),
     const WeatherScreen(),
     const CalendarScreen(),
