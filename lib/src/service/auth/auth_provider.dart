@@ -16,6 +16,19 @@ class AuthProvider with ChangeNotifier {
     FirebaseAuth.instance.signOut();
   }
 
+  Future<String?> getCurrentUserEmail() async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        return user.email;
+      } else {
+        return null;
+      }
+    } catch (error) {
+      return error.toString();
+    }
+  }
+
   Future<String?> signUserIn(String email, String password) async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance

@@ -56,7 +56,4 @@ class HomeScreenContainer extends StatelessWidget {
       ),
     );
   }
-
-  /*top: 10 + 130 * cos(2 * pi * 0 / 8) - 20,
-  left: 300 + 120 * sin(2 * pi * 0 / 8) - 20,*/
 }

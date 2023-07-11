@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:giyin/src/constants/text_style.dart';
+import 'package:provider/provider.dart';
 import '../../constants/color.dart';
 import '../../service/auth/auth_provider.dart';
 
@@ -8,37 +9,72 @@ class MyNavigationDrawer extends StatelessWidget {
   final AuthProvider authProvider = AuthProvider();
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      elevation: 100,
-      width: MediaQuery.of(context).size.width * 0.75,
-      backgroundColor: CustomColors.kKoyuBeyazBG,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: <Widget>[
-            Expanded(
+    return Consumer<AuthProvider>(builder: (context, authProvider, _) {
+      return Drawer(
+        elevation: 100,
+        width: MediaQuery.of(context).size.width * 0.75,
+        backgroundColor: CustomColors.kKoyuBeyazBG,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                  child: Align(
+                child: ClipOval(
+                    child: Image.asset(
+                  "assets/images/profile.png",
+                  height: MediaQuery.of(context).size.height * 0.22,
+                )),
+              )),
+              Expanded(
                 child: Align(
-              alignment: Alignment.topCenter,
-              child: buildMenuItems(context),
-            )),
-            Expanded(
-              child: Align(
-                alignment: Alignment.bottomLeft,
-                child: buildDrawerListTileCard(
-                    context, "assets/icons/logout.png", "Sign Out", () {
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return buildSignOutAlertDialog(context);
+                  alignment: Alignment.topCenter,
+                  child: FutureBuilder<String?>(
+                    future: authProvider.getCurrentUserEmail(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return const CircularProgressIndicator();
+                      } else if (snapshot.hasData) {
+                        return buildDrawerListTileCard(
+                          context,
+                          "assets/icons/wrong-password.png",
+                          snapshot.data!,
+                          () {},
+                        );
+                      } else if (snapshot.hasError) {
+                        return Text(
+                          "Error: ${snapshot.error}",
+                          style: const TextStyle(color: Colors.red),
+                        );
+                      } else {
+                        return const Text(
+                          "No user email found.",
+                          style: TextStyle(color: Colors.red),
+                        );
+                      }
                     },
-                  );
-                }),
+                  ),
+                ),
               ),
-            )
-          ],
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: buildDrawerListTileCard(
+                      context, "assets/icons/logout.png", "Sign Out", () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return buildSignOutAlertDialog(context);
+                      },
+                    );
+                  }),
+                ),
+              )
+            ],
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 
   AlertDialog buildSignOutAlertDialog(BuildContext context) {
