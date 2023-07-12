@@ -1,4 +1,17 @@
+import 'package:giyin/src/service/weather/weather_provider.dart';
+
 class WeatherForecast {
+  WeatherForecast({
+    required this.dt,
+    required this.temperature,
+    required this.feelsLike,
+    required this.weatherDescription,
+    required this.windSpeed,
+    required this.rainAmount,
+    required this.icon,
+    required this.image,
+  });
+
   int dt;
   double temperature;
   double feelsLike;
@@ -7,6 +20,7 @@ class WeatherForecast {
   double rainAmount;
   String icon;
   String image;
+
 
   static List<WeatherForecast> fromJsonList(List<dynamic> jsonList) {
     return jsonList.map((json) => WeatherForecast.fromJson(json)).toList();
@@ -35,16 +49,7 @@ class WeatherForecast {
     );
   }
 
-  WeatherForecast({
-    required this.dt,
-    required this.temperature,
-    required this.feelsLike,
-    required this.weatherDescription,
-    required this.windSpeed,
-    required this.rainAmount,
-    required this.icon,
-    required this.image,
-  });
+
 
   static String capitalize(String text) {
     if (text.isEmpty) return text;
@@ -54,6 +59,7 @@ class WeatherForecast {
   static String getWeatherImageForecast(
     String weatherDescription,
   ) {
+
     String description = weatherDescription.toLowerCase();
     if (description.contains('rain')) {
       return 'assets/images/rainy.png';

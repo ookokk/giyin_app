@@ -34,7 +34,7 @@ class WeatherScreen extends StatelessWidget {
                   const SizedBox(
                     height: 8,
                   ),
-                  buildUpdateButton(weatherProvider),
+                  buildRefreshButton(weatherProvider),
                   Image.asset(
                     weatherImage,
                     width: MediaQuery.of(context).size.width * 0.35,
@@ -103,7 +103,7 @@ class WeatherScreen extends StatelessWidget {
   }
 
   Expanded buildNextFourthDayWeatherContainer(
-      BuildContext context, WeatherProvider weatherData) {
+      BuildContext context, WeatherProvider weatherProvider) {
     return Expanded(
       child: Container(
         height: MediaQuery.of(context).size.height * 0.2,
@@ -115,16 +115,16 @@ class WeatherScreen extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                '${weatherData.getTemperatureForDay(4).toInt()}°',
+                '${weatherProvider.getTemperatureForDay(4).toInt()}°',
                 style: kMediumText,
               ),
               const SizedBox(height: 8),
               Image.asset(
                 WeatherForecast.getWeatherImageForecast(
-                    weatherData.weatherDescription4),
+                    weatherProvider.weatherDescription4),
               ),
               const SizedBox(height: 8),
-              Text(weatherData.getFormattedDayName(4), style: kSmallText),
+              Text(weatherProvider.getFormattedDayName(4), style: kSmallText),
             ],
           ),
         )),
@@ -133,7 +133,7 @@ class WeatherScreen extends StatelessWidget {
   }
 
   Expanded buildNextThirdDayWeatherContainer(
-      BuildContext context, WeatherProvider weatherData) {
+      BuildContext context, WeatherProvider weatherProvider) {
     return Expanded(
       child: Container(
         height: MediaQuery.of(context).size.height * 0.2,
@@ -145,16 +145,16 @@ class WeatherScreen extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  '${weatherData.getTemperatureForDay(3).toInt()}°',
+                  '${weatherProvider.getTemperatureForDay(3).toInt()}°',
                   style: kMediumText,
                 ),
                 const SizedBox(height: 8),
                 Image.asset(
                   WeatherForecast.getWeatherImageForecast(
-                      weatherData.weatherDescription3),
+                      weatherProvider.weatherDescription3),
                 ),
                 const SizedBox(height: 8),
-                Text(weatherData.getFormattedDayName(3), style: kSmallText),
+                Text(weatherProvider.getFormattedDayName(3), style: kSmallText),
               ],
             ),
           ),
@@ -164,7 +164,7 @@ class WeatherScreen extends StatelessWidget {
   }
 
   Expanded buildNextSecondDayWeatherContainer(
-      BuildContext context, WeatherProvider weatherData) {
+      BuildContext context, WeatherProvider weatherProvider) {
     return Expanded(
       child: Container(
         height: MediaQuery.of(context).size.height * 0.2,
@@ -176,16 +176,16 @@ class WeatherScreen extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  '${weatherData.getTemperatureForDay(2).toInt()}°',
+                  '${weatherProvider.getTemperatureForDay(2).toInt()}°',
                   style: kMediumText,
                 ),
                 const SizedBox(height: 8),
                 Image.asset(
                   WeatherForecast.getWeatherImageForecast(
-                      weatherData.weatherDescription2),
+                      weatherProvider.weatherDescription2),
                 ),
                 const SizedBox(height: 8),
-                Text(weatherData.getFormattedDayName(2), style: kSmallText),
+                Text(weatherProvider.getFormattedDayName(2), style: kSmallText),
               ],
             ),
           ),
@@ -195,7 +195,7 @@ class WeatherScreen extends StatelessWidget {
   }
 
   Expanded buildNextDayWeatherContainer(
-      BuildContext context, WeatherProvider weatherData) {
+      BuildContext context, WeatherProvider weatherProvider) {
     return Expanded(
       child: Container(
         height: MediaQuery.of(context).size.height * 0.2,
@@ -207,16 +207,16 @@ class WeatherScreen extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  '${weatherData.getTemperatureForDay(1).toInt()}°',
+                  '${weatherProvider.getTemperatureForDay(1).toInt()}°',
                   style: kMediumText,
                 ),
                 const SizedBox(height: 8),
                 Image.asset(
                   WeatherForecast.getWeatherImageForecast(
-                      weatherData.weatherDescription1),
+                      weatherProvider.weatherDescription1),
                 ),
                 const SizedBox(height: 8),
-                Text(weatherData.getFormattedDayName(1), style: kSmallText),
+                Text(weatherProvider.getFormattedDayName(1), style: kSmallText),
               ],
             ),
           ),
@@ -225,7 +225,7 @@ class WeatherScreen extends StatelessWidget {
     );
   }
 
-  Row buildWindHumidityRainRow(WeatherProvider weatherData) {
+  Row buildWindHumidityRainRow(WeatherProvider weatherProvider) {
     return Row(
       children: [
         Expanded(
@@ -236,7 +236,7 @@ class WeatherScreen extends StatelessWidget {
                 height: 46,
               ),
               Text(
-                '${weatherData.windSpeed.toInt()} km/h',
+                '${weatherProvider.windSpeed.toInt()} km/h',
                 style: kMediumText,
               ),
               Text(
@@ -251,7 +251,7 @@ class WeatherScreen extends StatelessWidget {
             children: [
               Image.asset('assets/images/humidity.png', height: 46),
               Text(
-                '${weatherData.humidity.toInt()}%',
+                '${weatherProvider.humidity.toInt()}%',
                 style: kMediumText,
               ),
               Text(
@@ -269,9 +269,20 @@ class WeatherScreen extends StatelessWidget {
                 height: 46,
               ),
               Text(
-                ' ${weatherData.rainAmount.toInt()}%',
+                ' ${weatherProvider.rainAmount.toInt()}%',
                 style: kMediumText,
               ),
+              IconButton(
+                  onPressed: () {
+                    print(weatherProvider.rainAmount);
+                    print(weatherProvider
+                        .getWeatherImage(weatherProvider.weatherDescription2));
+                    print(weatherProvider
+                        .getWeatherImage(weatherProvider.weatherDescription3));
+                    print(weatherProvider
+                        .getWeatherImage(weatherProvider.weatherDescription4));
+                  },
+                  icon: Icon(Icons.add)),
               Text(
                 'Chance of rain',
                 style: kSmallText,
@@ -283,7 +294,7 @@ class WeatherScreen extends StatelessWidget {
     );
   }
 
-  ElevatedButton buildUpdateButton(WeatherProvider weatherData) {
+  ElevatedButton buildRefreshButton(WeatherProvider weatherProvider) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
             maximumSize: const Size(200, 150),
@@ -295,11 +306,12 @@ class WeatherScreen extends StatelessWidget {
             shape: const StadiumBorder(),
             padding: const EdgeInsets.symmetric(horizontal: 16)),
         onPressed: () async {
-          await weatherData.getCurrentLocation();
-          await weatherData.getWeatherData(
-            weatherData.latitude,
-            weatherData.longitude,
+          await weatherProvider.getCurrentLocation();
+          await weatherProvider.getWeatherData(
+            weatherProvider.latitude,
+            weatherProvider.longitude,
           );
+          weatherProvider.notifyListeners();
         },
         child: Row(
           children: [
@@ -315,13 +327,13 @@ class WeatherScreen extends StatelessWidget {
         ));
   }
 
-  Row buildLocationCityRow(WeatherProvider weatherData) {
+  Row buildLocationCityRow(WeatherProvider weatherProvider) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Icon(Icons.location_on_outlined),
         const SizedBox(width: 10),
-        Text(weatherData.location, style: kMediumLargeBText),
+        Text(weatherProvider.location, style: kMediumLargeBText),
       ],
     );
   }

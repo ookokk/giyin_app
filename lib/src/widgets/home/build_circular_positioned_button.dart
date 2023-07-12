@@ -16,13 +16,12 @@ Positioned buildCircularPositionedButton(
     child: ElevatedButton(
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
-        minimumSize: const Size(150, 60),
-        maximumSize: const Size(150, 70),
+        minimumSize: const Size(140, 50),
+        maximumSize: const Size(140, 50),
         backgroundColor: Colors.white,
         shape: const CircleBorder(),
         padding: const EdgeInsets.all(5),
-        elevation: 5,
-        shadowColor: Colors.transparent,
+        shadowColor: Colors.black,
       ),
       child: Image.asset(imagePath),
     ),

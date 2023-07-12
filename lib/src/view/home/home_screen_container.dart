@@ -30,7 +30,7 @@ class HomeScreenContainer extends StatelessWidget {
                     height: myHeight * 0.23,
                   ),
                 ),
-                buildCircularPositionedButton(myHeight * 0.51, myHeight * 0.17,
+                buildCircularPositionedButton(myHeight * 0.52, myHeight * 0.17,
                     myWidth * 0.1, myWidth * 0.1, () {
                   Navigator.pushNamed(context, '/combinations');
                 }, "assets/icons/closet.png"),
