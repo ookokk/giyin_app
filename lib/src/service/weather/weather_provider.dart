@@ -8,6 +8,9 @@ import 'package:intl/intl.dart';
 import '../../../ignore.dart';
 
 class WeatherProvider with ChangeNotifier {
+  WeatherProvider() {
+    getWeather();
+  }
   JsonWeather _currentWeather = JsonWeather();
   final LocationHelper _locationHelper = LocationHelper();
   double latitude = 0;
@@ -27,7 +30,8 @@ class WeatherProvider with ChangeNotifier {
 
       if (response.statusCode == 200) {
         JsonWeather weather = JsonWeather.fromJson(json.decode(response.body));
-        print(weather);
+        // print(weather);
+        //problemin çözüldü ama circular indicator statele haberleşmeli,
         _currentWeather = weather;
         notifyListeners();
       } else {
@@ -125,9 +129,20 @@ class WeatherProvider with ChangeNotifier {
     } else if (weatherDescription.contains('wind')) {
       return 'assets/images/windy.png';
     } else if (weatherDescription.contains('clear')) {
-      return 'assets/images/clear.png';
+      return 'assets/icons/weather.png';
     } else {
       return 'assets/images/season.png';
     }
+  }
+
+  String toFirstLetterUp(String text) {
+    List<String> words = text.split(" ");
+    for (int i = 0; i < words.length; i++) {
+      String word = words[i];
+      if (word.isNotEmpty) {
+        words[i] = word[0].toUpperCase() + word.substring(1);
+      }
+    }
+    return words.join(" ");
   }
 }

@@ -21,7 +21,7 @@ final Map<String, WidgetBuilder> routes = {
   '/forgotPassword': (context) => ForgotPasswordScreen(),
   '/auth': (context) => const AuthScreen(),
 
-  '/home': (context) => const HomeScreen(),
+  '/home': (context) => HomeScreen(),
   //GARDROP
   '/gardrop': (context) => const WardrobeScreen(),
   '/combinations': (context) => const MyCombinationsScreen(),
