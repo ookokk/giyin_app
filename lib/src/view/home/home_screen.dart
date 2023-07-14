@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:giyin/src/view/home/home_screen_container.dart';
 import '../../constants/color.dart';
 import '../../service/auth/auth_provider.dart';
-import '../../widgets/custom_botom_navigation_bar.dart';
+import '../../widgets/custom_bottom_navigation_bar.dart';
 import '../../widgets/home/my_navigation_drawer.dart';
 import '../calendar/calendar_screen.dart';
 import '../weather/weather_screen.dart';
@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Center(
       child: HomeScreenContainer(),
     ),
-    const WeatherScreen(),
+    WeatherScreen(),
     const CalendarScreen(),
   ];
 

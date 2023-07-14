@@ -46,3 +46,27 @@ TextStyle kXXXLargeText = const TextStyle(
   fontFamily: 'OpenSans-Medium',
   fontSize: 48,
 );
+/////////////////////////////////////////////////
+TextStyle mLargeText = const TextStyle(
+  fontFamily: 'Rowdies-Bold',
+  fontSize: 28,
+);
+TextStyle mMediumText = const TextStyle(
+  fontFamily: 'Rowdies-Regular',
+  fontSize: 20,
+  color: Colors.black,
+);
+
+TextStyle mXLargeText = const TextStyle(
+  fontFamily: 'Rowdies-Regular',
+  fontSize: 34,
+);
+
+TextStyle mXXLargeText = const TextStyle(
+  fontFamily: 'Rowdies',
+  fontSize: 32,
+);
+TextStyle mXXXLargeText = const TextStyle(
+  fontFamily: 'Rowdies-Light',
+  fontSize: 48,
+);

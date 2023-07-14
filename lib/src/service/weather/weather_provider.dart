@@ -1,144 +1,133 @@
 import 'package:flutter/material.dart';
+import 'package:giyin/src/models/weather/weather_list.dart';
 import 'package:http/http.dart' as http;
-import 'package:intl/intl.dart';
 import 'dart:convert';
-
+import 'package:giyin/src/models/weather/json_weather.dart';
+import 'package:giyin/src/service/weather/location_helper.dart';
+import 'package:intl/intl.dart';
 import '../../../ignore.dart';
-import 'location_helper.dart';
-import 'weather_forecast.dart';
 
 class WeatherProvider with ChangeNotifier {
-  List<WeatherForecast> forecasts = []; // 5 günlük hava durumu
-  String city = '';
-  DateTime dt = DateTime(2023);
-  double temperature = 0;
-  double feelslike = 0;
-  String location = '';
-  String weatherDescriptionToday = '';
-  String weatherDescription1 = '';
-  String weatherDescription2 = '';
-  String weatherDescription3 = '';
-  String weatherDescription4 = '';
+  JsonWeather _currentWeather = JsonWeather();
+  final LocationHelper _locationHelper = LocationHelper();
   double latitude = 0;
   double longitude = 0;
-  int humidity = 0;
-  double windSpeed = 0;
-  double rainAmount = 0;
+  JsonWeather? get currentWeather => _currentWeather;
 
-  Future<void> getWeatherData(double latitude, double longitude) async {
-    String apiUrl =
-        'https://api.openweathermap.org/data/2.5/forecast?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric';
+  Future<void> getWeather() async {
+    try {
+      await _locationHelper.getCurrentLocation();
+      latitude = _locationHelper.latitude;
+      longitude = _locationHelper.longitude;
 
-    final response = await http.get(Uri.parse(apiUrl));
-    if (response.statusCode == 200) {
-      Map<String, dynamic> weatherData = jsonDecode(response.body);
+      String apiUrl =
+          'https://api.openweathermap.org/data/2.5/forecast?lat=$latitude&lon=$longitude&appid=$apiKey&units=metric';
 
-      location = weatherData['city']['name'];
+      final response = await http.get(Uri.parse(apiUrl));
 
-      forecasts = List<WeatherForecast>.from(
-              weatherData['list'].map((item) => WeatherForecast.fromJson(item)))
-          .take(5)
-          .toList();
-
-      Map<DateTime, List<WeatherForecast>> dailyForecasts = {};
-
-      for (int i = 0; i < forecasts.length; i++) {
-        int timestamp = forecasts[i].dt;
-        DateTime date = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
-        DateTime day = DateTime(date.year, date.month, date.day);
-
-        if (!dailyForecasts.containsKey(day)) {
-          dailyForecasts[day] = [];
-        }
-        dailyForecasts[day]!.add(forecasts[i]);
+      if (response.statusCode == 200) {
+        JsonWeather weather = JsonWeather.fromJson(json.decode(response.body));
+        print(weather);
+        _currentWeather = weather;
+        notifyListeners();
+      } else {
+        throw Exception('Failed to fetch weather data');
       }
-
-      temperature = weatherData['list'][3]['main']['temp'];
-
-      feelslike = weatherData['list'][0]['main']['feels_like'];
-
-      weatherDescriptionToday =
-          capitalize(weatherData['list'][0]['weather'][0]['description']);
-      weatherDescription1 =
-          capitalize(weatherData['list'][1]['weather'][0]['description']);
-      weatherDescription2 =
-          capitalize(weatherData['list'][2]['weather'][0]['description']);
-      weatherDescription3 =
-          capitalize(weatherData['list'][3]['weather'][0]['description']);
-      weatherDescription4 =
-          capitalize(weatherData['list'][4]['weather'][0]['description']);
-      humidity = weatherData['list'][0]['main']['humidity'];
-      windSpeed = weatherData['list'][0]['wind']['speed'];
-      rainAmount = weatherData['list'][0]['rain'] != null
-          ? weatherData['list'][0]['rain']['3h']
-          : 0;
-    } else {
-      location = 'Weather not available.';
-      temperature = 0;
-      feelslike = 0;
-      weatherDescriptionToday = '';
-      weatherDescription1 = '';
-      weatherDescription2 = '';
-      weatherDescription3 = '';
-      weatherDescription4 = '';
-      humidity = 0;
-      windSpeed = 0;
-      rainAmount = 0;
+    } catch (error) {
+      print('Error occurred in getWeather(): $error');
     }
-    notifyListeners();
-  }
-
-  String getFormattedDayName(int daysToAdd) {
-    DateTime now = DateTime.now();
-    DateTime futureDate = now.add(Duration(days: daysToAdd));
-
-    String formattedDate = DateFormat('EEEE').format(futureDate);
-    return formattedDate;
-  }
-
-  Future<void> getCurrentLocation() async {
-    LocationHelper locationHelper = LocationHelper();
-    await locationHelper.getCurrentLocation();
-    latitude = locationHelper.latitude;
-    longitude = locationHelper.longitude;
-    location = 'Getting location...';
-    notifyListeners();
-  }
-
-  void convertToInteger() {
-    temperature = temperature.toInt() as double;
-    feelslike = feelslike.toInt() as double;
-    windSpeed = windSpeed.toInt() as double;
-    rainAmount = rainAmount.toInt() as double;
-    notifyListeners();
   }
 
   String capitalize(String text) {
-    if (text.isEmpty) return text;
-    return text[0].toUpperCase() + text.substring(1);
-  }
+    try {
+      if (text.isEmpty) return text;
+      return text[0].toUpperCase() + text.substring(1);
+    } catch (error) {
+      print('Error occurred in capitalize(): $error');
 
-  double getTemperatureForDay(int dayIndex) {
-    if (dayIndex >= 1 && dayIndex <= forecasts.length) {
-      return forecasts[dayIndex - 1].temperature;
-    } else {
-      return 0.0; // Hata durumu için varsayılan değer
+      return text;
     }
   }
 
+  List<List<WeatherList>> getDailyWeatherList(JsonWeather jsonWeather) {
+    List<List<WeatherList>> dailyWeatherList = [];
+    List<WeatherList>? weatherList = jsonWeather.list;
+
+    if (weatherList != null && weatherList.isNotEmpty) {
+      DateTime currentDate = DateTime.parse(weatherList[0].dtTxt!);
+      List<WeatherList> dailyList = [];
+
+      void addDailyList() {
+        dailyWeatherList.add(dailyList);
+        dailyList = [];
+      }
+
+      try {
+        for (int i = 0; i < weatherList.length; i++) {
+          WeatherList weather = weatherList[i];
+          DateTime? weatherDate = DateTime.tryParse(weather.dtTxt!);
+
+          if (weatherDate != null) {
+            dailyList.add(weather);
+
+            if (weatherDate.day != currentDate.day) {
+              addDailyList();
+              currentDate = weatherDate;
+              dailyList = [weather];
+            }
+          }
+        }
+
+        addDailyList();
+      } catch (error) {
+        print('Error occurred in getDailyWeatherList(): $error');
+      }
+    }
+
+    return dailyWeatherList;
+  }
+
+  List<WeatherList> getWeatherForDay(JsonWeather? jsonWeather, int dayIndex) {
+    if (jsonWeather != null) {
+      List<List<WeatherList>> dailyWeatherList =
+          getDailyWeatherList(jsonWeather);
+
+      if (dayIndex >= 0 && dayIndex < dailyWeatherList.length) {
+        return dailyWeatherList[dayIndex];
+      }
+    }
+
+    return [];
+  }
+
+  String getDayOfWeek(String dtTxt) {
+    DateTime dateTime = DateTime.parse(dtTxt);
+    String dayOfWeek = DateFormat('EEEE').format(dateTime);
+    return dayOfWeek;
+  }
+
+  String formatTime(String dateTime) {
+    DateTime parsedDateTime = DateTime.parse(dateTime);
+    String formattedTime =
+        '${parsedDateTime.hour.toString().padLeft(2, '0')}:00';
+    return formattedTime;
+  }
+
   String getWeatherImage(String weatherDescription) {
-    if (weatherDescription.toLowerCase().contains('rain')) {
+    if (weatherDescription.contains('rain')) {
       return 'assets/images/rainy.png';
-    } else if (weatherDescription.toLowerCase().contains('sun')) {
+    } else if (weatherDescription.contains('sun')) {
       return 'assets/images/sunny.png';
-    } else if (weatherDescription.toLowerCase().contains('cloud')) {
-      return 'assets/images/cloudy.png';
-    } else if (weatherDescription.toLowerCase().contains('storm')) {
+    } else if (weatherDescription.contains('cloud')) {
+      return 'assets/images/cloudy_sunny.png';
+    } else if (weatherDescription.contains('storm')) {
       return 'assets/images/thunderstorm.png';
-    } else if (weatherDescription.toLowerCase().contains('wind')) {
+    } else if (weatherDescription.contains('wind')) {
       return 'assets/images/windy.png';
+    } else if (weatherDescription.contains('clear')) {
+      return 'assets/images/clear.png';
     } else {
-      return 'assets/images/hot.png';
+      return 'assets/images/season.png';
     }
   }
 }
