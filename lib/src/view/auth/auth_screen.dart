@@ -17,7 +17,7 @@ class AuthScreen extends StatelessWidget {
           builder: (context, user, _) {
             // User is logged in
             if (user != null) {
-              return HomeScreen();
+              return const HomeScreen();
             }
             // User is not logged in
             else {

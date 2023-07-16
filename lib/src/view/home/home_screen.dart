@@ -1,6 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 import 'package:flutter/material.dart';
-import 'package:giyin/src/view/home/home_screen_container.dart';
+import 'package:giyin/src/widgets/home/home_screen_container.dart';
 import '../../constants/color.dart';
 import '../../service/auth/auth_provider.dart';
 import '../../widgets/custom_bottom_navigation_bar.dart';
@@ -22,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Center(
       child: HomeScreenContainer(),
     ),
-    WeatherScreen(),
+    const WeatherScreen(),
     const CalendarScreen(),
   ];
 

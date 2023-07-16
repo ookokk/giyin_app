@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:giyin/src/widgets/home/my_home_clipper.dart';
 import 'dart:math';
 import '../../constants/color.dart';
-import '../../widgets/home/build_circular_positioned_button.dart';
+import 'build_circular_positioned_button.dart';
 
 class HomeScreenContainer extends StatelessWidget {
   HomeScreenContainer({Key? key}) : super(key: key);

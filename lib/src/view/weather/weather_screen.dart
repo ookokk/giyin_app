@@ -1,13 +1,16 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:giyin/src/service/weather/location_helper.dart';
 import 'package:provider/provider.dart';
 import '../../constants/color.dart';
 import '../../constants/default_padding.dart';
 import '../../service/weather/weather_provider.dart';
+import '../../widgets/weather/build_city_row.dart';
 import '../../widgets/weather/build_daily_column.dart';
 
 class WeatherScreen extends StatefulWidget {
-  WeatherScreen({Key? key});
+  const WeatherScreen({Key? key});
 
   @override
   State<WeatherScreen> createState() => _WeatherScreenState();
@@ -50,6 +53,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   else
                     Column(
                       children: [
+                        buildCityRow(weatherProvider),
                         BuildDailyColumn(
                           height: kHeight * 0.5,
                           width: kWidth,

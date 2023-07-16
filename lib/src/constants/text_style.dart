@@ -34,9 +34,7 @@ TextStyle kLargeText = const TextStyle(
 );
 
 TextStyle kXLargeText = const TextStyle(
-  fontFamily: 'OpenSans-Medium',
-  fontSize: 34,
-);
+    fontFamily: 'OpenSans-Medium', fontSize: 34, color: Colors.black);
 
 TextStyle kXXLargeText = const TextStyle(
   fontFamily: 'OpenSans-Medium',
@@ -64,9 +62,9 @@ TextStyle mXLargeText = const TextStyle(
 
 TextStyle mXXLargeText = const TextStyle(
   fontFamily: 'Rowdies',
-  fontSize: 32,
+  fontSize: 22,
 );
 TextStyle mXXXLargeText = const TextStyle(
-  fontFamily: 'Rowdies-Light',
-  fontSize: 48,
+  fontFamily: 'Rowdies',
+  fontSize: 32,
 );

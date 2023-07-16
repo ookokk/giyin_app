@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:giyin/src/constants/color.dart';
 import '../../constants/text_style.dart';
@@ -26,7 +28,7 @@ class BuildDailyColumn extends StatelessWidget {
       children: [
         Text(
           weatherProvider.getDayOfWeek(weatherList[dayIndex].dtTxt!),
-          style: mXXLargeText,
+          style: mXXXLargeText,
         ),
         Container(
           width: width,

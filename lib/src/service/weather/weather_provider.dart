@@ -30,15 +30,14 @@ class WeatherProvider with ChangeNotifier {
 
       if (response.statusCode == 200) {
         JsonWeather weather = JsonWeather.fromJson(json.decode(response.body));
-        // print(weather);
-        //problemin çözüldü ama circular indicator statele haberleşmeli,
+
         _currentWeather = weather;
         notifyListeners();
       } else {
         throw Exception('Failed to fetch weather data');
       }
     } catch (error) {
-      print('Error occurred in getWeather(): $error');
+      rethrow;
     }
   }
 
@@ -47,8 +46,6 @@ class WeatherProvider with ChangeNotifier {
       if (text.isEmpty) return text;
       return text[0].toUpperCase() + text.substring(1);
     } catch (error) {
-      print('Error occurred in capitalize(): $error');
-
       return text;
     }
   }
@@ -84,7 +81,7 @@ class WeatherProvider with ChangeNotifier {
 
         addDailyList();
       } catch (error) {
-        print('Error occurred in getDailyWeatherList(): $error');
+        rethrow;
       }
     }
 
