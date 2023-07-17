@@ -129,6 +129,9 @@ Sprint Review katılımcıları: Beyza Akcan, Dilara Maya Taşcı, Usame Altın�
 
    Projenin istenilen düzeye gelmesini sağlamak için daha çok zaman ayrılması gerektiğine karar verilmiştir.
 
+  ## Product Backlog URL
+
+[Flutter Team 6 Notion Backlog Board](https://www.notion.so/e12b45d9475e4d28bc8ec76476316a03?v=9f50567ba551486eb9867075bc6077c4)
 
 ---
 
@@ -145,29 +148,36 @@ Sprint Review katılımcıları: Beyza Akcan, Dilara Maya Taşcı, Usame Altın�
  ![Sprint 3 Daily Scrum Chats2](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/c67f1db8-8fda-4fbb-92b1-48c62c6d8dac)
 
 - **Sprint board update**: Sprint board screenshotları: 
-![Backlog 1](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint3Documents/2022-06-06%2000_19_38-Clipboard.png) 
+![Backlog 1](![2023-07-17 (2)](https://github.com/ookokk/f6_bootcamp/assets/135658088/627a6a30-635a-41d6-826d-624b9ea4d165)
+![Backlog 2](![2023-07-17 (3)](https://github.com/ookokk/f6_bootcamp/assets/135658088/92e1cb65-ce51-4149-8ddb-21b542e55923)
 
 
 - **Ürün Durumu**: Ekran görüntüleri:
-  ![Screenshot 1](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint3Documents/1.png)
-  ![Screenshot 2](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint3Documents/2.png)
-  ![Screenshot 3](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint3Documents/3.png)
+  ![Screenshot 1](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/a1d1ac40-2d50-49fb-80fe-4c0f6f3978cb)
+  ![Screenshot 2](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/90d52b8c-ef1a-4def-bdff-1a7b57af26f8)
+  ![Screenshot 3](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/3d208e17-d084-438a-8369-d2145ae5f597)
+  ![Screenshot 4](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/9bc3179d-ef08-4ce6-9b2b-0d044d0aeec7)
+  ![Screenshot 5](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/e4e9b1dd-6e13-4ce1-99c1-9e5dd25efdff)
+  ![Screenshot 6](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/3e314637-606f-4023-9da1-a90679706aaf)
+  ![Screenshot 7](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/0bbd5c47-2109-4c39-a63e-83a9163dd99a)
+  ![Screenshot 8](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/34adf42d-0191-47f7-b0a0-ce4c91ad3a9f)
+  ![Screenshot 9](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/554f59a9-bde0-4e5b-a570-73b432bfb5c9)
+  ![Screenshot 10](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/cf085d8e-7396-40ae-aae4-1c754030d95e)
 
+  
 
 - **Sprint Review**: 
-Alınan kararlar: Kullanıcı temel sayfaların arayüzleri, algoritmaları kodlanmış, firebase servislerine bağlantıları yapılmış ve tamamlanamayan sayfa, algoritma ve servis bağlantıları değerlendirilmiştir. 
-Sprint Review katılımcıları: Mustafa Aksoy, Yunus Emre Gürel, Sümeyye Aydoğan 
-
+Alınan kararlar: Ürün tanıtım videosu çekilmiştir. Ürünün tasarımının son haline karar verilmiştir. Kullanıcı temel sayfaların arayüzleri, algoritmaları kodlanmıştır.
+Sprint Review katılımcıları: Beyza Akcan, Dilara Maya Taşcı, Usame Altınışık, Osman Kök, Fatih Özcan
 - **Sprint Retrospective:**
 
-  - Takım üyelerinin gelecek projelerde daha fazla aktif olması gerektiğine vurgu yapılmıştır.
-
+  - Takım üyelerinin elinden geleni yaptığı ve olabildiğince zaman ayırdığı konusunnda hemfikir olunmuştur.
 
 ---
 
 
+## Product Backlog URL
 
 [Flutter Team 6 Notion Backlog Board](https://www.notion.so/e12b45d9475e4d28bc8ec76476316a03?v=9f50567ba551486eb9867075bc6077c4)
-
 ---
 
