@@ -132,7 +132,40 @@ Sprint Review katılımcıları: Beyza Akcan, Dilara Maya Taşcı, Usame Altın�
 
 ---
 
-## Product Backlog URL
+# Sprint 3
+
+- **Sprint notları**: Ürün son haline getirildi, ürün tanıtım videosu çekildi.
+
+- **Sprint içinde tamamlanması tahmin edilen puan**:130
+
+- **Puan tamamlama mantığı**: Toplamda proje boyunca tamamlanması gereken 340 puanlık backlog bulunmaktadır. Bu sprintte kalan 130 puanın tamamlanmasına karar verildi.
+
+- **Daily Scrum**: Daily Scrum toplantılarının zamansal sebeplerden ötürü Whatsapp üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır:
+ ![Sprint 3 Daily Scrum Chats](![WhatsApp Image 2023-07-17 at 09 23 31](https://github.com/ookokk/f6_bootcamp/assets/135658088/f6f1beeb-59be-438c-adef-41f34d9be4bd)
+ ![Sprint 3 Daily Scrum Chats2](![image](https://github.com/ookokk/f6_bootcamp/assets/135658088/c67f1db8-8fda-4fbb-92b1-48c62c6d8dac)
+
+- **Sprint board update**: Sprint board screenshotları: 
+![Backlog 1](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint3Documents/2022-06-06%2000_19_38-Clipboard.png) 
+
+
+- **Ürün Durumu**: Ekran görüntüleri:
+  ![Screenshot 1](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint3Documents/1.png)
+  ![Screenshot 2](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint3Documents/2.png)
+  ![Screenshot 3](https://github.com/OyunveUygulamaAkademisi/Bootcamp2022Example/blob/main/ProjectManagement/Sprint3Documents/3.png)
+
+
+- **Sprint Review**: 
+Alınan kararlar: Kullanıcı temel sayfaların arayüzleri, algoritmaları kodlanmış, firebase servislerine bağlantıları yapılmış ve tamamlanamayan sayfa, algoritma ve servis bağlantıları değerlendirilmiştir. 
+Sprint Review katılımcıları: Mustafa Aksoy, Yunus Emre Gürel, Sümeyye Aydoğan 
+
+- **Sprint Retrospective:**
+
+  - Takım üyelerinin gelecek projelerde daha fazla aktif olması gerektiğine vurgu yapılmıştır.
+
+
+---
+
+
 
 [Flutter Team 6 Notion Backlog Board](https://www.notion.so/e12b45d9475e4d28bc8ec76476316a03?v=9f50567ba551486eb9867075bc6077c4)
 
