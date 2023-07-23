@@ -73,7 +73,7 @@ Giyin App, kullanıcıların dijital gardrobunu oluşturmalarını sağlar. Kiş
 
 
 - **Ürün Durumu**: Ekran görüntüleri:
-  ![Weather_Page_1](![WhatsApp Image 2023-06-18 at 23 10 24](https://github.com/ookokk/f6_bootcamp/assets/135658088/5c8574d5-25d6-4ed7-9518-fd7d5f0026bf))
+ 
 )
   ![![WireFrame_0](![WhatsApp Image 2023-06-18 at 23 04 53](https://github.com/ookokk/f6_bootcamp/assets/135658088/34eac454-c106-4109-a0c2-3c56aace6b43)
 )
